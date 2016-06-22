@@ -7,7 +7,6 @@ set nocompatible                                  " Truly running VI iMproved.
 let mapleader = ","                               " Define ',' as leader.
 let base16colorspace=256 
 set splitbelow                                    " Horizontal split windows appear below current 
-set backupcopy=yes                              " To make vim use .viminfo symlink
 
 " External configurations that affect the VIM experience {{{
 "  Also mapped CAPS to give me ctrl! its very convenient!
@@ -16,34 +15,33 @@ set backupcopy=yes                              " To make vim use .viminfo symli
 " Vim-Plug plugin manager settings {{{
 call plug#begin('~/.vim/plugged')
 " Plugins {{{
-Plug 'scrooloose/nerdtree'                        " NERDTree.
-Plug 'jistr/vim-nerdtree-tabs'                    " NERDTree through all tabs.
-Plug 'scrooloose/NERDCommenter'                   " NERDCommenter for easy commenting.
-" Plug 'christoomey/vim-tmux-runner'                " Pass lines to Tmux.
-Plug 'pablocobelli/vim-tmux-runner'
-Plug 'osyo-manga/vim-over'
-Plug 'Tpope/vim-surround'                         " Surround test easily.
-Plug 'tmhedberg/SimpylFold'                       " Fold code.
-Plug 'MattesGroeger/vim-bookmarks'                " Bookmark lines in files.
-Plug 'davidhalter/jedi-vim'                       " Python jedi.
-Plug 'godlygeek/tabular'                          " Align to symbols.
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'  " Fuzzy file search.
-Plug 'FelikZ/ctrlp-py-matcher'                    " Best matcher for ctrlp. 
-Plug 'jeffkreeftmeijer/vim-numbertoggle'          " Clever number toggling.
-Plug 'Raimondi/delimitMate'                       " Auto-insert matching delimiters.
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'vim-airline/vim-airline'                    " Airline (no python needed).
-Plug 'vim-airline/vim-airline-themes'
-Plug 'christoomey/vim-tmux-navigator'             " Navigate tmux panes as vim's.
-Plug 'suan/vim-instant-markdown'                  " Instant markdown preview in browser.
-Plug 'chriskempson/base16-vim'                    " Base16 colors for vim
-Plug 'majutsushi/tagbar'                          " Tagbar outliner.
-Plug 'auto_autoread.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'rizzatti/dash.vim'                          " Dash (MacOS only) integration
-Plug 'scrooloose/syntastic'                       " Syntax checking for vim
-Plug 'kshenoy/vim-signature'                      " Toggle, display & navigate marks 
-Plug 'vim-scripts/Tail-Bundle'
+Plug 'scrooloose/nerdtree'                       " NERDTree.
+Plug 'jistr/vim-nerdtree-tabs'                   " NERDTree through all tabs.
+Plug 'scrooloose/NERDCommenter'                  " NERDCommenter for easy commenting.
+Plug 'pablocobelli/vim-tmux-runner'              " Send lines to another tmux pane.
+Plug 'osyo-manga/vim-over'                       " Substitute preview in real time.
+Plug 'Tpope/vim-surround'                        " Surround test easily.
+Plug 'tmhedberg/SimpylFold'                      " Fold code easily.
+Plug 'MattesGroeger/vim-bookmarks'               " Bookmark lines in files.
+Plug 'davidhalter/jedi-vim'                      " Python jedi.
+Plug 'godlygeek/tabular'                         " Align to symbols.
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' " Fuzzy file search.
+Plug 'FelikZ/ctrlp-py-matcher'                   " Best matcher for ctrlp.
+Plug 'jeffkreeftmeijer/vim-numbertoggle'         " Clever number toggling.
+Plug 'Raimondi/delimitMate'                      " Auto-insert matching delimiters.
+Plug 'jeetsukumaran/vim-buffergator'             " Switch buffers with ease.
+Plug 'vim-airline/vim-airline'                   " Airline (no python needed).
+Plug 'vim-airline/vim-airline-themes'            " Themes for Airline.
+Plug 'christoomey/vim-tmux-navigator'            " Navigate tmux panes as vim's.
+Plug 'suan/vim-instant-markdown'                 " Instant markdown preview in browser.
+Plug 'chriskempson/base16-vim'                   " Base16 colors for vim.
+Plug 'majutsushi/tagbar'                         " Tagbar outliner.
+Plug 'auto_autoread.vim'                         " Automatically read files when changed.
+Plug 'Yggdroot/indentLine'                       " Show indenting lines.
+Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
+Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
+Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
+Plug 'vim-scripts/Tail-Bundle'                   " Monitor changing files
 " }}}
 call plug#end()
 
