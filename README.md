@@ -11,6 +11,10 @@ My dot files for:
 - htop
 - inputrc
 
+## Requirements
+
+Only GNU `stow` is required to manage this dotfiles repo.
+
 ## Usage
 
     git clone https://github.com/pablocobelli/Dotfiles.git
@@ -21,3 +25,4 @@ My dot files for:
     stow vim
 
 Stow away at will!
+
