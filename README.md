@@ -10,6 +10,7 @@ My dot files for:
 - vim
 - htop
 - inputrc
+- matplotlib
 
 ## Requirements
 
