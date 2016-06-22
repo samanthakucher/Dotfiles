@@ -1,0 +1,34 @@
+backend: MacOSX
+
+font.family         : sans-serif
+font.style          : normal
+font.variant        : normal
+#font.weight         : medium
+#font.stretch        : normal
+# note that font.size controls default text sizes.  To configure
+# special text sizes tick labels, axes, labels, title, etc, see the rc
+# settings for axes and ticks. Special text sizes can be defined
+# relative to font.size, using the following values: xx-small, x-small,
+# small, medium, large, x-large, xx-large, larger, or smaller
+font.size           : 12.0
+font.serif          : Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
+font.sans-serif     : Helvetica Neue, Arial, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif
+font.monospace      : Menlo
+
+axes.linewidth : 0.75
+xtick.direction: out
+ytick.direction: out
+
+# Keymapping
+keymap.fullscreen : f               # toggling
+keymap.home : r                     # home or reset mnemonic
+keymap.back : h                     # forward / backward keys to enable
+keymap.forward : l                  # left handed quick navigation
+keymap.pan : p                      # pan mnemonic
+keymap.zoom : z                     # zoom mnemonic
+keymap.save : s                     # saving current figure
+keymap.quit : q                     # close the current figure
+keymap.grid : g                     # switching on/off a grid in current axes
+keymap.yscale : y                   # toggle scaling of y-axes
+keymap.xscale : x                   # toggle scaling of x-axes
+
