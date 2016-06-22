@@ -12,6 +12,7 @@ My dot files for:
 - inputrc
 - matplotlib
 - jupyter (former known as ipython notebook)
+- less
 
 ## Requirements
 
