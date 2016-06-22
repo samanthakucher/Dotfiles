@@ -1,2 +1,5 @@
 # Vim configuration is stored but not the actual vim plugins.
 /vim/.vim/plugged
+
+# Hide my vimgolf identifier
+/vimgolf/.vimgolf/config.yaml
