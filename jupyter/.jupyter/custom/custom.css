@@ -1,0 +1,11 @@
+.code_cell {  /* Area containing both code and output */
+    font-family: "Source Code Pro", "Droid Sans Mono", Consolas, "Ubuntu Mono", "Liberation Mono", monospace;
+    border-radius: 0.8em;
+    padding: 1em;
+}
+
+code, pre, .CodeMirror {
+    font-family: "Source Code Pro", "Droid Sans Mono", Consolas, "Ubuntu Mono", "Liberation Mono", monospace;
+    line-height:1.25em;
+    font-size: 13px;
+}

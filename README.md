@@ -11,6 +11,7 @@ My dot files for:
 - htop
 - inputrc
 - matplotlib
+- jupyter (former known as ipython notebook)
 
 ## Requirements
 
