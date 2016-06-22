@@ -43,6 +43,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'rizzatti/dash.vim'                          " Dash (MacOS only) integration
 Plug 'scrooloose/syntastic'                       " Syntax checking for vim
 Plug 'kshenoy/vim-signature'                      " Toggle, display & navigate marks 
+Plug 'vim-scripts/Tail-Bundle'
 " }}}
 call plug#end()
 
