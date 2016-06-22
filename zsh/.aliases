@@ -1,0 +1,21 @@
+# Example aliases
+alias viz="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vimrc="vim ~/.vimrc"
+alias vik="vim ~/.kwm/kwmrc"
+alias vima="vim *.*"
+
+# hace falta instalar terminal-notifier
+alias notifyme='terminal-notifier -message "Done with task." ; say "Task completed."'
+alias clc="clear"
+
+alias reload!='source ~/.zshrc'
+
+# alias matlab='/Applications/MATLAB_R2015b.app/bin/matlab -nodesktop'
+# After installing rlwrap via brew install rlwrap
+alias matlab='rlwrap -n -a -c /Applications/MATLAB_R2015b.app/bin/matlab -nodesktop'
+# alias ipython='ipython3'
+# alias ipy='ipython --nosep --logappend=~/.ipython/profile_default/ipython3_history.py --pylab=osx'
+# Para usar tmux facilmente
+alias tsh='tmux splitw -h' 
+alias tsv='tmux splitw -v'

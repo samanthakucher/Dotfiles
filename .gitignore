@@ -1,0 +1,2 @@
+# Vim configuration is stored but not the actual vim plugins.
+/vim/.vim/plugged

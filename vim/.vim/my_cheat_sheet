@@ -1,0 +1,13 @@
+search & replace through all file
+:%s/search/replace/g
+
+open file under cursor
+gf (in normal mode)
+
+attach runner to session/pane
+:VA
+
+open/close tagbar
+,tb
+
+

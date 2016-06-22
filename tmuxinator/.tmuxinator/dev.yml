@@ -1,0 +1,41 @@
+# ~/.tmuxinator/dev.yml
+
+name: dev
+root: ~/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t sample
+
+windows:
+  - pythoncoding:
+      layout: d86c,158x45,0,0{84x45,0,0,27,73x45,85,0[73x23,85,0,28,73x11,85,24,29,73x9,85,36,30]}
+      panes:
+        - vim
+        - ipython3 --nosep --logappend=~/.ipython/profile_default/ipython3_history.py
+        - lnav -c ':goto -5' ~/.ipython/profile_default/ipython3_history.py 
+        - 
+  # - zshelling:
+      # layout: main-vertical
+      # panes:
+        # - date 
