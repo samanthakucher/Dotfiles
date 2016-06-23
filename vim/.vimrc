@@ -41,7 +41,6 @@ Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
 Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
 Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
-Plug 'vim-scripts/Tail-Bundle'                   " Monitor changing files
 " }}}
 call plug#end()
 
@@ -108,6 +107,12 @@ augroup EditVimRC
     autocmd!
     autocmd BufWinEnter ~/.vimrc normal zM 
 augroup END
+" }}}
+" Activate autoread on history files {{{
+" augroup AutoReadHistoryFiles
+    " autocmd!
+    " autocmd BufRead ~/.ipython/profile_default/ipython3_history.py :Autoread 1
+" augroup END
 " }}}
 " Vim-LaTeX {{{ 
 "  Open PDFs with MacOs Preview app.
