@@ -36,11 +36,11 @@ Plug 'christoomey/vim-tmux-navigator'            " Navigate tmux panes as vim's.
 Plug 'suan/vim-instant-markdown'                 " Instant markdown preview in browser.
 Plug 'chriskempson/base16-vim'                   " Base16 colors for vim.
 Plug 'majutsushi/tagbar'                         " Tagbar outliner.
-Plug 'auto_autoread.vim'                         " Automatically read files when changed.
 Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
 Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
 Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
+Plug 'djoshea/vim-autoread'
 " }}}
 call plug#end()
 
@@ -107,12 +107,6 @@ augroup EditVimRC
     autocmd!
     autocmd BufWinEnter ~/.vimrc normal zM 
 augroup END
-" }}}
-" Activate autoread on history files {{{
-" augroup AutoReadHistoryFiles
-    " autocmd!
-    " autocmd BufRead ~/.ipython/profile_default/ipython3_history.py :Autoread 1
-" augroup END
 " }}}
 " Vim-LaTeX {{{ 
 "  Open PDFs with MacOs Preview app.
@@ -445,3 +439,9 @@ nnoremap <leader>gh :e ~/.vim/my_cheat_sheet<CR>
 " Do not show signature marks on startup,
 " use :SignatureToggleSigns to show them
 let g:SignatureEnabledAtStartup = 0
+
+" Custom Shortcuts 
+augroup LookAtLastLineWhenMonitoringHistoryFile 
+    au! BufRead,BufEnter ipython3_history.py normal GG
+augroup END
+command! ViewIPython3History view ~/.ipython/profile_default/ipython3_history.py 
