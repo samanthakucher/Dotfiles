@@ -1,3 +1,6 @@
+open vim buffergator
+,b
+
 search & replace through all file
 :%s/search/replace/g
 
@@ -7,7 +10,11 @@ gf (in normal mode)
 attach runner to session/pane
 :VA
 
-open/close tagbar
+toggle tagbar
 ,tb
 
+toggle NERDTree
+,k
 
+send to runner (if selected text, sends lines, otherwise sends file)
+,l

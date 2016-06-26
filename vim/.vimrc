@@ -322,20 +322,11 @@ let g:SimpylFold_docstring_preview = 1           " SimpylFold configuration.
 set cmdheight=1                                  " explicitly set the height of the command line.
 set showcmd                                      " Show (partial) command in status line.
 
-cnoremap help bel help
-" Help window at right-bottom.
 set showtabline=2                                " Always show tabline.
 set incsearch                                    " Pattern is matched as you type.
 set hlsearch
 
 set mouse=a    " Use mouse.
-
-" noremap <leader>s :update<CR>   
-" Quickly save current file.
-" noremap <leader>q :bd<CR>
-" Quickly quit current file.
-
-" syntax on
 
 set scrolloff=3                    " scroll before reaching bottom edge
 nnoremap <leader>vv :e $MYVIMRC<CR>  
@@ -350,7 +341,6 @@ set laststatus=2      " Always show statusline.
 set t_Co=256          " Use 256-color terminal.
 set noshowmode        " Hide the default mode text (e.g. -- INSERT -- below the statusline).
 
-
 set number
 set wildmenu 
 set wildmode=list:longest,full
@@ -358,7 +348,7 @@ set backspace=indent,eol,start
 
 " Open file under cursor in new tab.
 nnoremap <leader>fr <C-w>gf
-" Insert empty line without leaving normal mode.
+" Insert empty line *below* without leaving normal mode.
 noremap <leader><Space> o<Esc>k 
 
 " }}}
@@ -386,12 +376,12 @@ if exists('$TMUX')
     set term=screen-256color
 endif
 " }}}
-" Clear highlighting of found terms on escape in normal mode
+" {{{ Clear highlighting of found terms on escape in normal mode
 "   The first line does the trick, the second one prevents vim from
 "   doing weird things after remapping <esc> the first time.
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
-
+" }}}
 nmap <leader>z : !tmux resize-pane -Z<CR> 
 
 " Added to easily replace unicode characters after
@@ -419,7 +409,6 @@ function! g:LatexAccents()
     :%s/◦/$^{\\circ}$/ge
 endfunction
 
-
 " Prettier indent symbol for indentLine
 let g:indentLine_char = '┆'
 
@@ -432,16 +421,15 @@ nnoremap <S-Tab> :bprevious<CR>
 " when switching buffers!
 set hidden
 
-
 " Open my own cheatsheet
 nnoremap <leader>gh :e ~/.vim/my_cheat_sheet<CR>
 
-" Do not show signature marks on startup,
-" use :SignatureToggleSigns to show them
+" Do not show marks on startup,
+" use :SignatureToggleSigns to toggle them
 let g:SignatureEnabledAtStartup = 0
 
 " Custom Shortcuts 
 augroup LookAtLastLineWhenMonitoringHistoryFile 
     au! BufRead,BufEnter ipython3_history.py normal GG
 augroup END
-command! ViewIPython3History view ~/.ipython/profile_default/ipython3_history.py 
+command! MonitorIPython3History view ~/.ipython/profile_default/ipython3_history.py 
