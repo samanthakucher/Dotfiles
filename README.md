@@ -13,6 +13,7 @@ My dot files for:
 - matplotlib
 - jupyter (former known as ipython notebook)
 - less
+- hammerspoon 
 
 ## Requirements
 
