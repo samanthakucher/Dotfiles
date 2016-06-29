@@ -32,3 +32,5 @@ keymap.grid : g                     # switching on/off a grid in current axes
 keymap.yscale : y                   # toggle scaling of y-axes
 keymap.xscale : x                   # toggle scaling of x-axes
 
+# Lighter gray background for figure windows
+figure.facecolor : f0f0f0
