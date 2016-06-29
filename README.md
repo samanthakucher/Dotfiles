@@ -28,5 +28,19 @@ Only GNU `stow` is required to manage this dotfiles repo.
     ...
     stow vim
 
-Stow away at will!
+## Usage for particular dotfiles
+
+### .config
+
+The `.config` holds a github submodule, `base16-shell`. So, in this case,
+the installation steps are:
+
+    git clone https://github.com/pablocobelli/Dotfiles.git
+    cd Dotfiles
+    git submodule init
+    git submodule update
+
+and only after that we can issue
+
+    stow config
 

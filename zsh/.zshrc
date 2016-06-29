@@ -139,7 +139,8 @@ if [ -z "$BACKGROUND" ]; then
 fi
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/$THEME.$BACKGROUND.sh"
+# BASE16_SHELL="$HOME/.config/base16-shell/scripts/$THEME.$BACKGROUND.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/$THEME.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 source $BASE16_SHELL
 
@@ -160,5 +161,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export LNAV_EXP='mouse'
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
