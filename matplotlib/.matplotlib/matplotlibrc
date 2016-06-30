@@ -34,3 +34,6 @@ keymap.xscale : x                   # toggle scaling of x-axes
 
 # Lighter gray background for figure windows
 figure.facecolor : f0f0f0
+
+# Smaller figure size on screen 
+figure.figsize : 6, 4.5
