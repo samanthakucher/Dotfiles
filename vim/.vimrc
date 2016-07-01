@@ -355,14 +355,14 @@ noremap <leader><Space> o<Esc>k
 " Colorscheme {{{
 execute "set background=".$BACKGROUND
 execute "colorscheme ".$THEME
-highlight LineNr ctermbg=black
+highlight LineNr ctermbg=bg
 " }}}
 " Syntastic customize colors - goes after setting colorscheme {{{
-highlight SignColumn ctermbg=black
-highlight SyntasticErrorSign ctermbg=black ctermfg=yellow
-highlight SyntasticStyleErrorSign ctermbg=black ctermfg=yellow
-highlight SyntasticWarningSign ctermbg=black ctermfg=yellow
-highlight SyntasticStyleWarningSign ctermbg=black ctermfg=yellow
+highlight SignColumn ctermbg=bg
+highlight SyntasticErrorSign ctermbg=bg ctermfg=yellow
+highlight SyntasticStyleErrorSign ctermbg=bg ctermfg=yellow
+highlight SyntasticWarningSign ctermbg=bg ctermfg=yellow
+highlight SyntasticStyleWarningSign ctermbg=bg ctermfg=yellow
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -433,3 +433,11 @@ augroup LookAtLastLineWhenMonitoringHistoryFile
     au! BufRead,BufEnter ipython3_history.py normal GG
 augroup END
 command! MonitorIPython3History view ~/.ipython/profile_default/ipython3_history.py 
+
+" Vertical split color
+" hi vertsplit ctermfg=green ctermbg=green
+
+" Space as fill char (next line has an extra space at end)
+set fillchars+=vert:\ 
+
+
