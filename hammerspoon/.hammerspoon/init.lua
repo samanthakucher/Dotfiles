@@ -33,7 +33,13 @@ hs.hotkey.bind({"cmd"}, "U", function()
   pythonapp:activate(1)
 end)
 
+-- This opens a new window IF iTerm2 is already open...
+--   we need to open a new instance if it is not (to do!)
+--   something along the lines of:
+--   hs.application.launchOrFocus("iterm")
+--   first, probably (?)
 hs.hotkey.bind({"cmd"}, "return", function()
+  application.launchOrFocus("iTerm")
   itermapp = appfinder.appFromName("iTerm2")
   itermapp:selectMenuItem({"Shell","New Window"})
 end)
