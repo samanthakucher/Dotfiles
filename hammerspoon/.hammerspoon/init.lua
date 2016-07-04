@@ -33,6 +33,12 @@ hs.hotkey.bind({"cmd"}, "U", function()
   pythonapp:activate(1)
 end)
 
+hs.hotkey.bind({"cmd"}, "return", function()
+  itermapp = appfinder.appFromName("iTerm2")
+  itermapp:selectMenuItem({"Shell","New Window"})
+end)
+
+
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()

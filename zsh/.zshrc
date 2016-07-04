@@ -127,6 +127,8 @@ function dark() {
 alias vim='/usr/local/bin/mvim -v'
 alias viz='vim ~/.zshrc'
 alias vix='vim ~/.tmux.conf'
+alias vik='vim ~/.kwm/kwmrc'
+alias vih='vim ~/.hammerspoon/init.lua'
 
 ## Defining 'sk' as a function to open skim and a pdf if called like:
 ## sk filename.pdf
