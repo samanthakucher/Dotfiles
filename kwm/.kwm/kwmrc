@@ -49,7 +49,6 @@ kwmc config float-non-resizable on
 kwmc config lock-to-container on
 
 // Set focus-follows-mouse-mode to autoraise
-/* kwmc config focus-follows-mouse on */
 kwmc config focus-follows-mouse off
 
 /* Focus-follows-mouse is temporarily disabled when
@@ -88,6 +87,9 @@ kwmc rule owner="Preview" properties={role="AXDialog"}
 kwmc rule owner="python" properties={role="AXDialog"}
 kwmc rule owner="Python" properties={role="AXDialog"}
 
+kwmc config add-role AXStandardWindow iTerm2
+
+
 /* The following commands create rules that
    blacklists an application from Kwms tiling
 
@@ -104,7 +106,7 @@ kwmc rule owner="Python" properties={role="AXDialog"}
 
 // Enable border for focused window
 kwmc config border focused on
-kwmc config border focused size 1
+kwmc config border focused size 2
 kwmc config border focused color 0xFFD3A45A
 kwmc config border focused radius 6
 
@@ -180,11 +182,11 @@ kwmc bindsym prefix-w window -t focused
 // kwmc bindsym ctrl+alt-l window -s east
 // kwmc bindsym ctrl+alt-m window -s mark
 
-// Pseudo containers
+// Pseudo containers (are forced, empty splits!)
 kwmc bindsym cmd+ctrl+alt-p tree -pseudo create
 kwmc bindsym cmd+ctrl+alt-o tree -pseudo destroy
-kwmc bindsym ctrl+alt-p window -s prev
-kwmc bindsym ctrl+alt-n window -s next
+/* kwmc bindsym ctrl+alt-p window -s prev */
+/* kwmc bindsym ctrl+alt-n window -s next */
 
 // Detach Focused Window And Reinsert In Direction
 // (i.e., move windows between containers!)
@@ -209,12 +211,12 @@ kwmc bindsym ctrl+alt-right window -m display 1
 // Increase Container Gaps
 // kwmc bindsym prefix-x space -g increase horizontal
 // kwmc bindsym prefix-y space -g increase vertical
-// kwmc bindsym prefix-k space -g increase all
+kwmc bindsym ctrl+alt+cmd-up space -g increase all
 
 // Decrease Container Gaps
 // kwmc bindsym prefix+shift-x space -g decrease horizontal
 // kwmc bindsym prefix+shift-y space -g decrease vertical
-// kwmc bindsym prefix-j space -g decrease all
+kwmc bindsym ctrl+alt+cmd-down space -g decrease all
 
 // Increase Screen Padding
 // kwmc bindsym prefix-left space -p increase left

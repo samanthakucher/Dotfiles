@@ -11,19 +11,38 @@ require "tprint"
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
   hs.reload()
 end)
-hs.alert.show("Hammerspoon config reloaded.")
+hs.alert.show("Hammerspoon config loaded.")
 
 -- This shows hints for windows of iTerm2 app.
--- hs.hints.fontName = 'Operator Mono Book'
--- hs.hints.fontSize = '20'
 hs.hints.showTitleThresh = 0
 hs.hints.hintChars = {'F', 'J', 'D', 'S', 'T', 'U'}
-hs.hotkey.bind({"cmd"},"k", function() hints.windowHints(appfinder.appFromName("iTerm2"):allWindows()) end)
+-- The following works in general but fails on iTerm2 windows without title bar
+-- hs.hotkey.bind({"cmd"},"k", function() hints.windowHints(appfinder.appFromName("iTerm2"):allWindows()) end)
+function giveFocusToNonStandardWindow (selectedWindow)
+    -- The following :raise():focus() thing was suggested by user Ng
+    --   on the irc.freenode.net 8001 #hammerspoon channel
+    selectedWindow:raise():focus()
+end
+hs.hotkey.bind({"cmd"},"k", function() 
+    -- itermapp = application.find('iTerm2')
+    -- print(itermapp)
+    -- itermwins = itermapp:allWindows()
+    -- print(itermwins)
+    -- hints.windowHints(itermapp:allWindows()) 
+    -- hints.windowHints(itermwins, nil, 1)
+    -- Interesting, this works for all windows, regardless if iTerm2 or not!:
+    hints.windowHints(nil, giveFocusToNonStandardWindow, 1)
+    -- hints.windowHints(itermwins, giveFocusToNonStandardWindow, 1)
+end)
+-- Solution:
+-- define a function in Lua, windowHints' second argument function 
+-- will take the hs.window object of the window chosen by the user!
+
+
 
 -- Ideas:
 -- 1) bring all python figure windows to front
 -- 2) toggle safari to front or back (for quick search for help)
---
 
 -- Activates python figure windows
 hs.hotkey.bind({"cmd"}, "U", function()
