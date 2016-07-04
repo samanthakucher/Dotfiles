@@ -77,7 +77,7 @@ kwmc config cycle-focus on
 kwmc config split-ratio 0.5
 
 // New splits become the left leaf-node
-kwmc config spawn left
+kwmc config spawn right 
 
 /* Add custom tiling rules for applications that
    does not get tiled by Kwm by default.
