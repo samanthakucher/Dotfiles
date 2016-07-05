@@ -440,4 +440,5 @@ command! MonitorIPython3History view ~/.ipython/profile_default/ipython3_history
 " Space as fill char (next line has an extra space at end)
 set fillchars+=vert:\ 
 
-
+" Unhighlight current line number, so linenumber column blends with background
+hi CursorLineNr ctermbg=bg
