@@ -1,4 +1,7 @@
-backend: MacOSX
+backend: Qt4Agg 
+
+# toolbar : toolmanager 
+# toolbar : None 
 
 font.family         : sans-serif
 font.style          : normal

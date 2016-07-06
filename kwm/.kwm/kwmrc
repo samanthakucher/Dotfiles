@@ -96,8 +96,8 @@ kwmc config spawn right
    AXWindowRole and AXStandardWindowSubRole */
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
 kwmc rule owner="Preview" properties={role="AXDialog"}
-kwmc rule owner="python" properties={role="AXDialog"}
-kwmc rule owner="Python" properties={role="AXDialog"}
+/* kwmc rule owner="python" properties={role="AXDialog"} */
+/* kwmc rule owner="Python" properties={role="AXDialog"} */
 kwmc rule owner="Papers" properties={role="AXDialog"}
 kwmc config add-role AXStandardWindow iTerm2
 kwmc config add-role AXStandardWindow Papers
@@ -213,8 +213,8 @@ kwmc bindsym ctrl+shift-h window -m west
 /* kwmc bindsym ctrl+shift-x window -m mark */
 
 // Move Focused Window To Space (these are OSX Desktops)
-/* kwmc bindsym ctrl+alt-left window -m space left */
-/* kwmc bindsym ctrl+alt-right window -m space right */
+kwmc bindsym ctrl+alt-left window -m space left
+kwmc bindsym ctrl+alt-right window -m space right
 
 // Move Focused Window To Screen (are these Displays?)
 kwmc bindsym ctrl+alt-left window -m display 0
