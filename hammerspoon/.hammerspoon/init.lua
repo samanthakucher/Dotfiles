@@ -64,6 +64,11 @@ hs.hotkey.bind({"cmd"}, "return", function()
 end)
 
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
+  hs.execute("brew services restart kwm")
+  hs.alert.show("kwm restarted.")
+end)
+
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
