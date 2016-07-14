@@ -26,13 +26,3 @@ lsp() {
     ls -lhG | awk -v PWD=$(basename $PWD) '{printf(">> %s %s/%s\n",$5,PWD,$9);}' | column -t
 }
 
-# Rename tmux window when using ipython3
-ipy3() {
-    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
-            tmux rename-window "ipython3"
-            command ipython3 "$@"
-            tmux set-window-option automatic-rename "on" 1>/dev/null
-    else
-            command ipython3 "$@"
-    fi
-}

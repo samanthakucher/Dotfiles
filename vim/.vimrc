@@ -209,7 +209,7 @@ let g:VtrClearBeforeSend = 0
 " Highlights the runners running the listed commands
 "  when displaying the list of runners to choose from
 " let g:vtr_highlight_runner = [ 'Python', 'Vim' ]
-let g:vtr_highlight_runner = [ 'Python' ]
+let g:vtr_highlight_runner = [ 'python3.5' ]
 " Usage: 
 "  <leader>l will send selected block to a tmux session
 " If no selected block, <leader>l will execute the whole file. 
