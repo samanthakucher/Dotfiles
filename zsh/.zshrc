@@ -165,3 +165,4 @@ export LNAV_EXP='mouse'
 
 # The following makes it possible to pipe ls colors to any CLI command
 export CLICOLOR_FORCE=1
+
