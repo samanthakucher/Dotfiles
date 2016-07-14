@@ -44,3 +44,13 @@ and only after that we can issue
 
     stow config
 
+## To remove configurations
+
+The best usage case is when one uses stow temporarily, e.g. when using 
+someone else's computer or a remote generic one. Then one would `stow`
+the proper modules. When leaving, `stow` provides for a quick and nice
+way to un-stow those files:
+
+    stow -D bash
+
+to un-stow bash. 
