@@ -112,6 +112,7 @@ kwmc config add-role AXStandardWindow Papers
    kwmc rule owner="Spotify" properties={float="true"} 
    kwmc rule owner="Mail" properties={float="true"} 
    kwmc rule owner="Papers" properties={float="true"}
+   kwmc rule owner="MATLAB" properties={float="true"}
 
 /* The following command creates a rule that
    captures an application to the given screen,
