@@ -132,6 +132,7 @@ alias vih='vim ~/.hammerspoon/init.lua'
 ## sk filename.pdf
 sk () { open -a Skim -e $1 & }
 
+# export THEME="base16-paraiso"
 export THEME="base16-eighties"
 
 if [ -z "$BACKGROUND" ]; then
@@ -171,3 +172,4 @@ export CLICOLOR_FORCE=1
 ipy3 () {
     ~/bin/ipy3 "$@"
 }
+

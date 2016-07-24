@@ -46,7 +46,7 @@ kwmc bindsym hyper-h window -f west
 kwmc config padding 40 20 20 20
 
 // Set default values for container gaps
-kwmc config gap 15 15
+kwmc config gap 15 15 
 
 // Default tiling mode for Kwm (bsp | monocle | float)
 kwmc config tiling bsp
@@ -107,12 +107,12 @@ kwmc config add-role AXStandardWindow Papers
 
    kwmc rule owner="Steam" properties={float="true"}
    kwmc rule owner="Photoshop" properties={float="true"} */
-
    kwmc rule owner="Finder" properties={float="true"} 
    kwmc rule owner="Spotify" properties={float="true"} 
    kwmc rule owner="Mail" properties={float="true"} 
    kwmc rule owner="Papers" properties={float="true"}
    kwmc rule owner="MATLAB" properties={float="true"}
+   /* kwmc rule owner="VLC" properties={float="true"} */
 
 /* The following command creates a rule that
    captures an application to the given screen,
