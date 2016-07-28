@@ -124,6 +124,7 @@ augroup LaTeX
     autocmd FileType tex nmap <leader>cl :VtrSendCommandToRunner make clean<CR>
 augroup END
 " Smart ctags on latex files.
+let g:tagbar_foldlevel = 99
 let g:tagbar_type_tex = {
     \ 'ctagstype' : 'latex',
     \ 'kinds'     : [
