@@ -96,7 +96,7 @@ kwmc config spawn right
    AXWindowRole and AXStandardWindowSubRole */
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
 kwmc rule owner="Preview" properties={role="AXDialog"}
-/* kwmc rule owner="python" properties={role="AXDialog"} */
+kwmc rule owner="python3" properties={role="AXDialog"}
 /* kwmc rule owner="Python" properties={role="AXDialog"} */
 kwmc rule owner="Papers" properties={role="AXDialog"}
 kwmc config add-role AXStandardWindow iTerm2
@@ -111,7 +111,7 @@ kwmc config add-role AXStandardWindow Papers
    kwmc rule owner="Spotify" properties={float="true"} 
    kwmc rule owner="Mail" properties={float="true"} 
    kwmc rule owner="Papers" properties={float="true"}
-   kwmc rule owner="MATLAB" properties={float="true"}
+   /* kwmc rule owner="MATLAB" properties={float="true"} */
    /* kwmc rule owner="VLC" properties={float="true"} */
 
 /* The following command creates a rule that

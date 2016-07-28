@@ -170,6 +170,6 @@ export CLICOLOR_FORCE=1
 # Call my own python3.5 wrapper to ipython3 (located at ~/bin)
 #   The "$@" part passes all arguments given to the wrapper ('ipy3')
 ipy3 () {
-    ~/bin/ipy3 "$@"
+    ipython3 "$@"
 }
 
