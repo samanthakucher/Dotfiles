@@ -448,4 +448,4 @@ set fillchars+=vert:\
 hi CursorLineNr ctermbg=bg
 
 " Hardcopy header customization
-set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N\ of\ %{(line('$')+72)/73}
+set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N
