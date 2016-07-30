@@ -446,3 +446,6 @@ set fillchars+=vert:\
 
 " Unhighlight current line number, so linenumber column blends with background
 hi CursorLineNr ctermbg=bg
+
+" Hardcopy header customization
+set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N\ of\ %{(line('$')+72)/73}
