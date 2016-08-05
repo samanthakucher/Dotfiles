@@ -449,3 +449,6 @@ hi CursorLineNr ctermbg=bg
 
 " Hardcopy header customization
 set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N
+
+" Surround character with spaces (for python)
+noremap <leader>ss diwi<SPACE><C-R>"<SPACE><ESC>B
