@@ -54,3 +54,12 @@ way to un-stow those files:
     stow -D bash
 
 to un-stow bash. 
+
+### How to restore iTerm2 preferences
+
+After stowing them, the workflow is as follows. Go to Preferences, General.
+Click on "Load preferences from a custom folder or URL". Select the folder
+where the settings are (where you stowed them!). Once selected, you can click
+on "Save settings to Folder". I can confirm this procedure **does not
+overwrite** the settings (as it might seem from the names of the buttons,
+etc.). 
