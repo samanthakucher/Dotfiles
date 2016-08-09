@@ -26,3 +26,11 @@ lsp() {
     ls -lhG | awk -v PWD=$(basename $PWD) '{printf(">> %s %s/%s\n",$5,PWD,$9);}' | column -t
 }
 
+# CLI Weather by @igor_chubin
+#   Usage: 
+#           weather Paris
+#           weather BuenosAires
+#           weather [no arguments = local from ip address]
+weather() {
+    command curl wttr.in/"$@"
+}
