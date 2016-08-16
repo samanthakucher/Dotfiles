@@ -46,7 +46,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx common-aliases python sudo history-substring-search vi-mode wd)
+plugins=(git osx common-aliases python sudo history-substring-search vi-mode wd autojump)
 
 # PJC configuration
 export PATH="//anaconda/bin:$PATH"
@@ -86,6 +86,9 @@ export KEYTIMEOUT=10
 
 # Avoid problems and use Anaconda's path
 # export PATH="/anaconda/bin:$PATH"
+
+# For autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # To compile with gcc-4.9 from homebrew
 # used in compiling libeemd
