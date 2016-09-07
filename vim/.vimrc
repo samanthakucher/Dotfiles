@@ -41,6 +41,7 @@ Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration
 Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
 Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
 Plug 'djoshea/vim-autoread'
+Plug 'morhetz/gruvbox'
 " }}}
 call plug#end()
 
@@ -355,8 +356,9 @@ noremap <leader><Space> o<Esc>k
 
 " }}}
 " Colorscheme {{{
-execute "set background=".$BACKGROUND
-execute "colorscheme ".$THEME
+" execute "set background=".$BACKGROUND
+" execute "colorscheme ".$THEME
+colorscheme gruvbox
 highlight LineNr ctermbg=bg
 " }}}
 " Syntastic customize colors - goes after setting colorscheme {{{

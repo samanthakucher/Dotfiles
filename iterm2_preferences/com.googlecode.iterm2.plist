@@ -36519,11 +36519,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>76 21 700 487 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>735 376 796 473 0 0 1680 1027 </string>
+	<string>692 479 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>847 20 812 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>848 27 810 475 0 0 1680 1027 </string>
+	<string>23 23 1634 985 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>280 0 970 706 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -36723,14 +36723,16 @@
 			<false/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.17647058823529413</real>
+				<real>0.11759774386882782</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.17647058823529413</real>
+				<real>0.11759573966264725</real>
 				<key>Red Component</key>
-				<real>0.17647058823529413</real>
+				<real>0.11759927868843079</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
@@ -37502,7 +37504,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1470495360</real>
+	<real>1473273600</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -37527,5 +37529,9 @@
 	<false/>
 	<key>iTerm Version</key>
 	<string>3.0.git.2b2f92ba49</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
