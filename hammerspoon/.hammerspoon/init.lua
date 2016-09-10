@@ -1,10 +1,13 @@
 -- Hammerspoon configuration.
+-- Pablo Cobelli
 
 local appfinder = require "hs.appfinder"
 local hints = require "hs.hints"
 local window = require "hs.window"
 local application = require "hs.application"
 local tabs = require "hs.tabs"
+local tabs = require "hs.screen"
+local screen = require "hs.screen"
 require "tprint"
 
 -- Reload configuration using CMD+ALT+CTRL+R.
@@ -24,21 +27,12 @@ function giveFocusToNonStandardWindow (selectedWindow)
     selectedWindow:raise():focus()
 end
 hs.hotkey.bind({"cmd"},"k", function() 
-    -- itermapp = application.find('iTerm2')
-    -- print(itermapp)
-    -- itermwins = itermapp:allWindows()
-    -- print(itermwins)
-    -- hints.windowHints(itermapp:allWindows()) 
-    -- hints.windowHints(itermwins, nil, 1)
     -- Interesting, this works for all windows, regardless if iTerm2 or not!:
     hints.windowHints(nil, giveFocusToNonStandardWindow, 1)
-    -- hints.windowHints(itermwins, giveFocusToNonStandardWindow, 1)
 end)
 -- Solution:
 -- define a function in Lua, windowHints' second argument function 
 -- will take the hs.window object of the window chosen by the user!
-
-
 
 -- Ideas:
 -- 1) bring all python figure windows to front
@@ -58,9 +52,15 @@ end)
 --   hs.application.launchOrFocus("iterm")
 --   first, probably (?)
 hs.hotkey.bind({"cmd"}, "return", function()
-  application.launchOrFocus("iTerm2")
   itermapp = appfinder.appFromName("iTerm2")
-  itermapp:selectMenuItem({"Shell","New Window"})
+  if itermapp == nil then
+    -- it is not open; open it and focus (that opens a new window & focus it)
+    application.open("iTerm2")
+    application.launchOrFocus("iTerm2")
+  else
+    application.launchOrFocus("iTerm2")
+    itermapp:selectMenuItem({"Shell","New Window"})
+  end
 end)
 
 
