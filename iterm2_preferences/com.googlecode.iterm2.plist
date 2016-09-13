@@ -36519,7 +36519,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>76 21 700 487 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>516 371 796 473 0 0 1680 1027 </string>
+	<string>445 201 918 495 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>847 20 812 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -37332,7 +37332,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -37486,7 +37486,7 @@
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
-	<true/>
+	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.45401642376031637</real>
 	<key>SwitchTabModifier</key>

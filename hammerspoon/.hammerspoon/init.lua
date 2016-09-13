@@ -58,7 +58,7 @@ hs.hotkey.bind({"cmd"}, "return", function()
     application.open("iTerm2")
     application.launchOrFocus("iTerm2")
   else
-    application.launchOrFocus("iTerm2")
+    -- application.launchOrFocus("iTerm2")
     itermapp:selectMenuItem({"Shell","New Window"})
   end
 end)
@@ -67,6 +67,11 @@ end)
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
   hs.execute("brew services restart kwm")
   hs.alert.show("kwm restarted.")
+end)
+
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", function()
+  hs.execute("brew services restart kwm")
+  hs.alert.show("kwm stopped.")
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()

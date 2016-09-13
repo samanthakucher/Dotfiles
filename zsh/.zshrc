@@ -179,5 +179,17 @@ ipy3 () {
     ipython3 "$@"
 }
 
+scd () {
+    # SCD: Sync Change Directory; for use within tmux sessions; 
+    # [requires 1 argument, the number of the reference tmux session]
+    # Usage:  
+    #     scd 60 
+    # will change current tmux session pwd to that of session #60.
+    # Useful when working with python & editing on the same dir/folder.
+    remdir=$(/usr/local/bin/tmux display-message -p -F "#{pane_current_path}" -t "$@")
+    cd "$remdir"
+}
+
+
 # For Gruvbox palette
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
