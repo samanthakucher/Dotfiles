@@ -251,4 +251,8 @@ kwmc bindsym cmd-7 write \
 kwmc bindsym cmd-8 write {
 kwmc bindsym cmd-9 write }
 
+// New feature in kwm versions > 3.1.0
+kwmc config mouse-drag on
 
+// Define a modifier for mouse-drag
+kwmc config mouse-drag mod shift+cmd
