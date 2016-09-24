@@ -36490,7 +36490,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>322</string>
+		<string>307</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -36519,17 +36519,17 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>76 21 700 487 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>445 201 918 495 0 0 1680 1027 </string>
+	<string>445 223 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>847 20 812 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>848 20 810 990 0 0 1680 1027 </string>
+	<string>21 30 810 470 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>280 0 970 706 0 0 1440 877 </string>
+	<string>848 20 810 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>241 0 970 706 0 0 1440 877 </string>
+	<string>21 30 810 470 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>470 0 970 706 0 0 1440 877 </string>
+	<string>848 30 810 470 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_6854E035-EE99-4ECE-BB19-2397005228F8</key>
 	<true/>
 	<key>New Bookmarks</key>

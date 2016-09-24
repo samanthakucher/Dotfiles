@@ -359,6 +359,7 @@ noremap <leader><Space> o<Esc>k
 " execute "set background=".$BACKGROUND
 " execute "colorscheme ".$THEME
 colorscheme gruvbox
+set background=dark
 highlight LineNr ctermbg=bg
 " }}}
 " Syntastic customize colors - goes after setting colorscheme {{{
@@ -371,7 +372,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 cabbrev tsc SyntasticToggleMode<CR>
-let g:syntastic_python_flake8_args='--ignore=F999'
+let g:syntastic_python_flake8_args='--ignore=F999,E231,E226'
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
