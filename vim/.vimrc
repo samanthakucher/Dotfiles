@@ -41,7 +41,9 @@ Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration
 Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
 Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
 Plug 'djoshea/vim-autoread'
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'                           " Gruvbox theme 
+Plug 'mattn/webapi-vim'                          " Needed for gist-vim
+Plug 'mattn/gist-vim'                            " Create and manage github gists
 " }}}
 call plug#end()
 
@@ -261,7 +263,7 @@ command! Xbit call SetExecutableBit()
 augroup ReloadingVimRC
     autocmd!
     if has("autocmd")
-        autocmd bufwritepost ~/.vimrc nested source $MYVIMRC  
+        autocmd BufWritePost ~/.vimrc nested source $MYVIMRC | AirlineRefresh 
     endif
 augroup END
 " }}}
@@ -455,3 +457,12 @@ set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N
 
 " Surround character with spaces (for python)
 noremap <leader>ss diwi<SPACE><C-R>"<SPACE><ESC>B
+
+" Gist-vim setup
+" Options
+let g:gist_post_private = 1
+let g:gist_show_privates = 1
+let g:gist_detect_filetype = 1
+let g:gist_clip_command = 'pbcopy'
+" Shortcut for listing my gists on github
+nnoremap <leader>gh :Gist -l pablocobelli<CR>

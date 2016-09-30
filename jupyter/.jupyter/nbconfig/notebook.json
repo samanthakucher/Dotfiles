@@ -1,5 +1,12 @@
 {
   "load_extensions": {
-    "vim_binding/vim_binding": true
+    "toggle_all_line_numbers/main": true,
+    "vim_binding/vim_binding": true,
+    "toc2/main": false,
+    "latex_envs/latex_envs": true,
+    "equation-numbering/main": true,
+    "dragdrop/main": true,
+    "hide_input/main": true,
+    "python-markdown/main": true
   }
 }
