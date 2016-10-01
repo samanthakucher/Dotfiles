@@ -43,7 +43,7 @@ Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate ma
 Plug 'djoshea/vim-autoread'
 Plug 'morhetz/gruvbox'                           " Gruvbox theme 
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
-Plug 'mattn/gist-vim'                            " Create and manage github gists
+Plug 'pablocobelli/gist-vim'                     " Create and manage github gists
 " }}}
 call plug#end()
 
