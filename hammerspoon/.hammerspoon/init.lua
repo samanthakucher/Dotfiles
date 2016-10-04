@@ -63,6 +63,18 @@ hs.hotkey.bind({"cmd"}, "return", function()
   end
 end)
 
+hs.hotkey.bind({"ctrl"}, "return", function()
+  safariapp = appfinder.appFromName("Safari")
+  if safariapp == nil then
+    -- it is not open; open it and focus (that opens a new window & focus it)
+    application.open("Safari")
+    application.launchOrFocus("Safari")
+  else
+    -- open new window
+    safariapp:selectMenuItem({"File","New Window"})
+  end
+end)
+
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
   hs.execute("brew services restart kwm")
@@ -70,14 +82,13 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", function()
-  hs.execute("brew services restart kwm")
+  hs.execute("brew services stop kwm")
   hs.alert.show("kwm stopped.")
 end)
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
-
   f.x = f.x - 10
   win:setFrame(f)
 end)
