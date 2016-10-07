@@ -97,10 +97,12 @@ kwmc config spawn right
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
 kwmc rule owner="Preview" properties={role="AXDialog"}
 kwmc rule owner="python3" properties={role="AXDialog"}
-/* kwmc rule owner="Python" properties={role="AXDialog"} */
+kwmc rule owner="Python" properties={role="AXDialog"} 
+kwmc rule owner="python" properties={role="AXDialog"} 
 kwmc rule owner="Papers" properties={role="AXDialog"}
 kwmc config add-role AXStandardWindow iTerm2
 kwmc config add-role AXStandardWindow Papers
+kwmc config add-role AXStandardWindow python 
 
 /* The following commands create rules that
    blacklists an application from Kwms tiling
