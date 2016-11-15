@@ -44,6 +44,7 @@ Plug 'djoshea/vim-autoread'
 Plug 'morhetz/gruvbox'                           " Gruvbox theme 
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
 Plug 'pablocobelli/gist-vim'                     " Create and manage github gists
+" Plug 'mattn/ctrlp-gist'                          " Use ctrlp with gists from github 
 " }}}
 call plug#end()
 
