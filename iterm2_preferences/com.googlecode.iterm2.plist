@@ -36208,23 +36208,23 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>861 262 733 341 0 0 1680 1027 </string>
+	<string>559 404 733 207 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>756 561 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>76 21 700 487 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>73 149 796 473 0 0 1440 877 </string>
+	<string>452 233 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>20 20 812 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>23 24 1394 832 0 0 1440 877 </string>
+	<string>726 17 702 847 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>729 24 687 832 0 0 1440 877 </string>
+	<string>726 17 702 847 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>22 25 687 830 0 0 1440 877 </string>
+	<string>726 17 702 847 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>3121 -3 458 490 1680 -30 1920 1057 </string>
+	<string>730 22 686 410 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>3121 514 458 490 1680 -30 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_6854E035-EE99-4ECE-BB19-2397005228F8</key>
@@ -36519,7 +36519,7 @@
 				<real>1</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -36867,11 +36867,11 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>FiraMonoForPowerline-Regular 13</string>
+			<string>RobotoMonoForPowerline-Regular 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraMonoForPowerline-Regular 13</string>
+			<string>RobotoMonoForPowerline-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>

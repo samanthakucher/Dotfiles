@@ -34,7 +34,6 @@ Plug 'vim-airline/vim-airline'                   " Airline (no python needed).
 Plug 'vim-airline/vim-airline-themes'            " Themes for Airline.
 Plug 'christoomey/vim-tmux-navigator'            " Navigate tmux panes as vim's.
 Plug 'suan/vim-instant-markdown'                 " Instant markdown preview in browser.
-Plug 'chriskempson/base16-vim'                   " Base16 colors for vim.
 Plug 'majutsushi/tagbar'                         " Tagbar outliner.
 Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
@@ -44,7 +43,7 @@ Plug 'djoshea/vim-autoread'
 Plug 'morhetz/gruvbox'                           " Gruvbox theme 
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
 Plug 'pablocobelli/gist-vim'                     " Create and manage github gists
-" Plug 'mattn/ctrlp-gist'                          " Use ctrlp with gists from github 
+Plug 'junegunn/goyo.vim'
 " }}}
 call plug#end()
 
@@ -126,6 +125,8 @@ augroup LaTeX
     autocmd BufWinEnter *.tex normal zR
     autocmd FileType tex nmap <leader>mk :VtrSendCommandToRunner make<CR>
     autocmd FileType tex nmap <leader>cl :VtrSendCommandToRunner make clean<CR>
+    autocmd BufWinEnter *.tex set colorcolumn=79 
+    autocmd BufWinLeave *.tex set colorcolumn=0
 augroup END
 " Smart ctags on latex files.
 let g:tagbar_iconchars = ['>', '<']
