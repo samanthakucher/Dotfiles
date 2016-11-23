@@ -193,3 +193,9 @@ scd () {
 
 # For Gruvbox palette
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+
+# Redefine configuration variables for history-substring-search zsh plugin
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=,fg=blue,bold'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=,fg=red,bold'
+HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
+
