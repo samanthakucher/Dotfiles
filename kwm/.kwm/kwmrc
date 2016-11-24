@@ -44,10 +44,10 @@ kwmc bindsym hyper-h window -f west
 
 // Set default values for screen padding
 /* kwmc config padding 40 20 20 20 */
-kwmc config padding 30 8 8 8 
+kwmc config padding 25 3 3 3 
 
 // Set default values for container gaps
-kwmc config gap 8 8 
+kwmc config gap 3 3 
 
 // Default tiling mode for Kwm (bsp | monocle | float)
 kwmc config tiling bsp

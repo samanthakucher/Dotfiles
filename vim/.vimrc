@@ -471,3 +471,9 @@ let g:gist_get_multiplefile = 0
 " let g:gist_edit_with_buffers = 0
 " Shortcut for listing my gists on github
 nnoremap <leader>gh :Gist -l pablocobelli<CR>
+
+" Ctlr-P search deep
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=10
+let g:ctrlp_working_path_mode = ""
+let g:ctrlp_lazy_update = 1
