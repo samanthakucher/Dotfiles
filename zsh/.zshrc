@@ -199,3 +199,5 @@ HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=,fg=blue,bold'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=,fg=red,bold'
 HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
 
+# Quick change to command mode (on vi-mode) when pressing ESC
+export KEYTIMEOUT=1
