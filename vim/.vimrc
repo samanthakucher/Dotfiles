@@ -39,7 +39,7 @@ Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
 Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
 Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
-Plug 'djoshea/vim-autoread'
+Plug 'Carpetsmoker/auto_autoread.vim'
 Plug 'morhetz/gruvbox'                           " Gruvbox theme 
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
 Plug 'pablocobelli/gist-vim'                     " Create and manage github gists
@@ -420,6 +420,9 @@ function! g:LatexAccents()
     :%s/◦/$^{\\circ}$/ge
 endfunction
 
+" Send command to runner (needs VTR)
+abbrev SC VtrSendCommandToRunner
+
 " Prettier indent symbol for indentLine
 let g:indentLine_char = '┆'
 
@@ -477,3 +480,8 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=10
 let g:ctrlp_working_path_mode = ""
 let g:ctrlp_lazy_update = 1
+
+" Para logging del python history 
+" usando auto_autoread.vim que usa python
+command! -bar Autoreadcmd Autoread 0.5
+command! LogFile Autoreadcmd|set nomodifiable|set cursorline|AirlineToggle

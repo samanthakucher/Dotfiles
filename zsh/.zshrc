@@ -98,19 +98,6 @@ export PATH="/usr/local/bin:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Defining function to detect cd to a folder containing
-# a README file, and showing it on the terminal.
-function chpwd {
-  if [[ -e README.DIR ]]; then
-      echo
-      echo \* Folder contains README.DIR file that states: \*
-      echo
-      cat README.DIR
-      echo
-      echo \* End of README.DIR file. \*
-      echo
-  fi }
-
 source /Users/pablo/.iterm2_shell_integration.zsh
 
 # export PATH="/Users/pablo/anaconda/bin:$PATH"
@@ -124,16 +111,6 @@ source /Users/pablo/.iterm2_shell_integration.zsh
     # export BACKGROUND="dark" && reload!
 # }
 
-# My alias and functions
-alias vim='/usr/local/bin/mvim -v'
-alias viz='vim ~/.zshrc'
-alias vix='vim ~/.tmux.conf'
-alias vik='vim ~/.kwm/kwmrc'
-alias vih='vim ~/.hammerspoon/init.lua'
-
-## Defining 'sk' as a function to open skim and a pdf if called like:
-## sk filename.pdf
-sk () { open -a Skim -e $1 & }
 
 # export THEME="base16-paraiso"
 # export THEME="base16-eighties"
@@ -173,22 +150,6 @@ export CLICOLOR_FORCE=1
 # Colors for tree
 # export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:';
 
-# Call my own python3.5 wrapper to ipython3 (located at ~/bin)
-#   The "$@" part passes all arguments given to the wrapper ('ipy3')
-ipy3 () {
-    ipython3 "$@"
-}
-
-scd () {
-    # SCD: Sync Change Directory; for use within tmux sessions; 
-    # [requires 1 argument, the number of the reference tmux session]
-    # Usage:  
-    #     scd 60 
-    # will change current tmux session pwd to that of session #60.
-    # Useful when working with python & editing on the same dir/folder.
-    remdir=$(/usr/local/bin/tmux display-message -p -F "#{pane_current_path}" -t "$@")
-    cd "$remdir"
-}
 
 
 # For Gruvbox palette
