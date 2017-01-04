@@ -172,5 +172,5 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
+base16_default-light
 

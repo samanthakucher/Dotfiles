@@ -36208,21 +36208,21 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>559 404 733 207 0 0 1440 877 </string>
+	<string>103 193 771 581 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>756 561 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>76 21 700 487 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>620 501 796 473 0 0 1680 1027 </string>
+	<string>45 411 918 495 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>20 20 812 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>843 6 830 1016 0 0 1680 1027 </string>
+	<string>13 19 1654 999 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>843 6 830 506 0 0 1680 1027 </string>
+	<string>850 531 814 489 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>3 6 750 1016 0 0 1680 1027 </string>
+	<string>15 17 814 489 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>5 6 1670 1016 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -36871,11 +36871,11 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>RobotoMonoForPowerline-Regular 14</string>
+			<string>RobotoMonoForPowerline-Regular 13</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>RobotoMonoForPowerline-Regular 14</string>
+			<string>RobotoMonoForPowerline-Regular 13</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
