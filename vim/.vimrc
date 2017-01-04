@@ -27,7 +27,7 @@ Plug 'davidhalter/jedi-vim'                      " Python jedi.
 Plug 'godlygeek/tabular'                         " Align to symbols.
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' " Fuzzy file search.
 Plug 'FelikZ/ctrlp-py-matcher'                   " Best matcher for ctrlp.
-Plug 'jeffkreeftmeijer/vim-numbertoggle'         " Clever number toggling.
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'         " Clever number toggling.
 Plug 'Raimondi/delimitMate'                      " Auto-insert matching delimiters.
 Plug 'jeetsukumaran/vim-buffergator'             " Switch buffers with ease.
 Plug 'vim-airline/vim-airline'                   " Airline (no python needed).
@@ -37,13 +37,15 @@ Plug 'suan/vim-instant-markdown'                 " Instant markdown preview in b
 Plug 'majutsushi/tagbar'                         " Tagbar outliner.
 Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
-Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
+" Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
 Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
 Plug 'Carpetsmoker/auto_autoread.vim'
 Plug 'morhetz/gruvbox'                           " Gruvbox theme 
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
 Plug 'pablocobelli/gist-vim'                     " Create and manage github gists
 Plug 'junegunn/goyo.vim'
+Plug 'unblevable/quick-scope'                    " Quick scope for easy f & F navigation
+Plug 'chriskempson/base16-vim'
 " }}}
 call plug#end()
 
@@ -348,7 +350,6 @@ set laststatus=2      " Always show statusline.
 set t_Co=256          " Use 256-color terminal.
 set noshowmode        " Hide the default mode text (e.g. -- INSERT -- below the statusline).
 
-set number
 set wildmenu 
 set wildmode=list:longest,full
 set backspace=indent,eol,start
@@ -484,4 +485,23 @@ let g:ctrlp_lazy_update = 1
 " Para logging del python history 
 " usando auto_autoread.vim que usa python
 command! -bar Autoreadcmd Autoread 0.5
-command! LogFile Autoreadcmd|set nomodifiable|set cursorline|AirlineToggle
+" command! LogFile Autoreadcmd|set nomodifiable|set cursorline|AirlineToggle
+
+" TURBO
+" Ejecutar esto para cambiar el keyrepeat: defaults write NSGlobalDomain KeyRepeat -int 1
+" let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
+" set noshowmatch         " Don't match parentheses/brackets
+" set nocursorline        " Don't paint cursor line
+" set nocursorcolumn      " Don't paint cursor column
+set lazyredraw          " Wait to redraw
+set ttyfast
+" set scrolljump=10        " Scroll 8 lines at a time at bottom/top
+" let html_no_rendering=1 " Don't render italic, bold, links in HTML
+" set norelativenumber
+
+" Changes the theme to coincide with the shell theme
+" (if base16 is installed)
+if !empty($BASE16_THEME)
+    let tema = "base16-" . $BASE16_THEME
+    execute 'colorscheme' tema
+endif

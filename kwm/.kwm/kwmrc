@@ -44,10 +44,10 @@ kwmc bindsym hyper-h window -f west
 
 // Set default values for screen padding
 /* kwmc config padding 40 20 20 20 */
-kwmc config padding 25 3 3 3 
+kwmc config padding 25 12 12 12
 
 // Set default values for container gaps
-kwmc config gap 3 3 
+kwmc config gap 15 15
 
 // Default tiling mode for Kwm (bsp | monocle | float)
 kwmc config tiling bsp
@@ -101,9 +101,11 @@ kwmc rule owner="python3" properties={role="AXDialog"}
 kwmc rule owner="Python" properties={role="AXDialog"} 
 kwmc rule owner="python" properties={role="AXDialog"} 
 kwmc rule owner="Papers" properties={role="AXDialog"}
+kwmc rule owner="Yoda" properties={role="AXDialog"}
 kwmc config add-role AXStandardWindow iTerm2
 kwmc config add-role AXStandardWindow Papers
-kwmc config add-role AXStandardWindow python 
+kwmc config add-role AXStandardWindow Yoda
+/* kwmc config add-role AXStandardWindow python  */
 
 /* The following commands create rules that
    blacklists an application from Kwms tiling
@@ -125,7 +127,6 @@ kwmc config add-role AXStandardWindow python
 
 // Enable border for focused window
 kwmc config border focused on
-kwmc config border focused off
 kwmc config border focused size 2
 kwmc config border focused color 0xFFD3A45A
 kwmc config border focused radius 6
