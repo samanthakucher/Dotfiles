@@ -72,7 +72,7 @@ The procedure is simple. I created the ${HOME}/Dotfiles directory and then insid
 
 For example, let's say you want to manage the configuration for Bash, VIM and Uzbl. Bash has a couple files in the top-level directory; VIM typically has your .vimrc file on the top-level and a .vim directory; and Uzbl has files in ${XDG_CONFIG_HOME}/uzbl and ${XDG_DATA_HOME}/uzbl. So, your home directory looks like this:
 
-home/
+    home/
     brandon/
         .config/
             uzbl/
@@ -90,35 +90,35 @@ home/
 
 You would then create a dotfiles subdirectory and move all the files there:
 
-home/
-    /brandon/
-        .config/
-        .local/
-            .share/
-        dotfiles/
-            bash/
-                .bashrc
-                .bash_profile
-                .bash_logout
-            uzbl/
-                .config/
-                    uzbl/
-                        [...some files]
-                .local/
-                    share/
+    home/
+        /brandon/
+            .config/
+            .local/
+                .share/
+            dotfiles/
+                bash/
+                    .bashrc
+                    .bash_profile
+                    .bash_logout
+                uzbl/
+                    .config/
                         uzbl/
                             [...some files]
-            vim/
-                .vim/
-                    [...some files]
-                .vimrc
+                    .local/
+                        share/
+                            uzbl/
+                                [...some files]
+                vim/
+                    .vim/
+                        [...some files]
+                    .vimrc
 
 Then, perform the following commands:
 
-$ cd ~/dotfiles
-$ stow bash
-$ stow uzbl
-$ stow vim
+    $ cd ~/dotfiles
+    $ stow bash
+    $ stow uzbl
+    $ stow vim
 
 And, voila, all your config files (well, symbolic links to them) are all in the correct place, however disorganized that might be, while the actual files are all neatly organized in your dotfiles directory, which is easily turned into a VCS repo. One handy thing is that if you use multiple computers, which may not have the same software installed on them, you can pick and choose which configurations to install when you need them. All of your dotfiles are always available in your dotfiles directory, but if you don't need the configuration for one program, you simply don't Stow it and thus it does not clutter your home directory.
 
