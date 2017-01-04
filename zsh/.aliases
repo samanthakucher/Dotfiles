@@ -36,4 +36,5 @@ weather() {
 }
 
 # Next one depends on installing 'brew install archey'
-alias arch='archey -p -c -o'
+alias arch='archey -o'
+alias cdh='cd ~'

@@ -1,11 +1,10 @@
 " {{{ Terminal colorspace
-set t_Co=256                                      " Use 256-color terminal.
+" set t_Co=256                                      " Use 256-color terminal.
 " }}}
 set foldmethod=marker                             " Use marker as fold method
 set foldlevel=99
 set nocompatible                                  " Truly running VI iMproved.
 let mapleader = ","                               " Define ',' as leader.
-let base16colorspace=256 
 set splitbelow                                    " Horizontal split windows appear below current 
 
 " External configurations that affect the VIM experience {{{
@@ -347,7 +346,6 @@ nnoremap Q gqap
 set guioptions=       " Remove all scroll bars.
 set clipboard=unnamed " Uses system's clipboard.
 set laststatus=2      " Always show statusline.
-set t_Co=256          " Use 256-color terminal.
 set noshowmode        " Hide the default mode text (e.g. -- INSERT -- below the statusline).
 
 set wildmenu 
@@ -359,29 +357,6 @@ nnoremap <leader>fr <C-w>gf
 " Insert empty line *below* without leaving normal mode.
 noremap <leader><Space> o<Esc>k 
 
-" }}}
-" Colorscheme {{{
-" execute "set background=".$BACKGROUND
-" execute "colorscheme ".$THEME
-colorscheme gruvbox
-set background=dark
-highlight LineNr ctermbg=bg
-" }}}
-" Syntastic customize colors - goes after setting colorscheme {{{
-highlight SignColumn ctermbg=bg
-highlight SyntasticErrorSign ctermbg=bg ctermfg=yellow
-highlight SyntasticStyleErrorSign ctermbg=bg ctermfg=yellow
-highlight SyntasticWarningSign ctermbg=bg ctermfg=yellow
-highlight SyntasticStyleWarningSign ctermbg=bg ctermfg=yellow
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-cabbrev tsc SyntasticToggleMode<CR>
-let g:syntastic_python_flake8_args='--ignore=F999,E231,E226'
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
 " }}}
 " {{{ Set terminal type for Tmux
 if exists('$TMUX')
@@ -456,7 +431,6 @@ command! MonitorIPython3History view ~/.ipython/profile_default/ipython3_history
 set fillchars+=vert:\ 
 
 " Unhighlight current line number, so linenumber column blends with background
-hi CursorLineNr ctermbg=bg
 
 " Hardcopy header customization
 set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N
@@ -487,7 +461,7 @@ let g:ctrlp_lazy_update = 1
 command! -bar Autoreadcmd Autoread 0.5
 " command! LogFile Autoreadcmd|set nomodifiable|set cursorline|AirlineToggle
 
-" TURBO
+" TURBO FAST MODE
 " Ejecutar esto para cambiar el keyrepeat: defaults write NSGlobalDomain KeyRepeat -int 1
 " let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
 " set noshowmatch         " Don't match parentheses/brackets
@@ -501,7 +475,32 @@ set ttyfast
 
 " Changes the theme to coincide with the shell theme
 " (if base16 is installed)
-if !empty($BASE16_THEME)
-    let tema = "base16-" . $BASE16_THEME
-    execute 'colorscheme' tema
+let base16colorspace=256 
+if filereadable(expand("~/.vimrc_background"))
+  source ~/.vimrc_background
 endif
+" Colorscheme fine-tuning {{{
+" execute "set background=".$BACKGROUND
+" execute "colorscheme ".$THEME
+" colorscheme gruvbox
+" set background=dark
+" highlight LineNr ctermbg=bg
+highlight LineNr ctermbg=0  ctermfg=0
+highlight CursorLineNr ctermbg=0 ctermfg=3
+" }}}
+" Syntastic customize colors - goes after setting colorscheme {{{
+highlight SignColumn ctermbg=0
+highlight SyntasticErrorSign ctermbg=0 ctermfg=3
+highlight SyntasticStyleErrorSign ctermbg=0 ctermfg=3
+highlight SyntasticWarningSign ctermbg=0 ctermfg=3
+highlight SyntasticStyleWarningSign ctermbg=0 ctermfg=3
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+cabbrev tsc SyntasticToggleMode<CR>
+let g:syntastic_python_flake8_args='--ignore=F999,E231,E226'
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" }}}
