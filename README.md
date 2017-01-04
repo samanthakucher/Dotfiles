@@ -14,6 +14,7 @@ My dot files for:
 - jupyter (former known as ipython notebook)
 - less
 - hammerspoon 
+- khd
 
 ## Requirements
 
