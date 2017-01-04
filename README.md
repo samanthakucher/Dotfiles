@@ -14,7 +14,8 @@ My dot files for:
 - jupyter (former known as ipython notebook)
 - less
 - hammerspoon 
-- khd
+- khd (for kwm)
+- fzf (junegunn's fuzzyfinder)
 
 ## Requirements
 
