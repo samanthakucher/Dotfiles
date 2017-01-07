@@ -36218,9 +36218,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>20 20 812 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>845 16 822 1006 0 0 1680 1027 </string>
+	<string>845 19 822 999 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>845 16 822 1006 0 0 1680 1027 </string>
+	<string>845 19 822 489 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>15 17 814 489 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -37043,9 +37043,9 @@
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
-			<true/>
-			<key>Use Bright Bold</key>
 			<false/>
+			<key>Use Bright Bold</key>
+			<true/>
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Cursor Guide</key>

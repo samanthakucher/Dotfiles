@@ -3,9 +3,11 @@ dale
 call dale
 dale()
 my_edit
-
-open_with 
 open_with  
 open_w
 attach
 shell q
+open_with VLC
+
+open_with h
+open_with 

@@ -1,8 +1,8 @@
 " {{{ Terminal colorspace
 " set t_Co=256                                      " Use 256-color terminal.
 " }}}
-set foldmethod=marker                             " Use marker as fold method
-set foldlevel=99
+" set foldmethod=marker                             " Use marker as fold method
+" set foldlevel=99
 set nocompatible                                  " Truly running VI iMproved.
 let mapleader = ","                               " Define ',' as leader.
 set splitbelow                                    " Horizontal split windows appear below current 
@@ -26,7 +26,7 @@ Plug 'davidhalter/jedi-vim'                      " Python jedi.
 Plug 'godlygeek/tabular'                         " Align to symbols.
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' " Fuzzy file search.
 Plug 'FelikZ/ctrlp-py-matcher'                   " Best matcher for ctrlp.
-" Plug 'jeffkreeftmeijer/vim-numbertoggle'         " Clever number toggling.
+Plug 'jeffkreeftmeijer/vim-numbertoggle'         " Clever number toggling.
 Plug 'Raimondi/delimitMate'                      " Auto-insert matching delimiters.
 Plug 'jeetsukumaran/vim-buffergator'             " Switch buffers with ease.
 Plug 'vim-airline/vim-airline'                   " Airline (no python needed).
@@ -36,7 +36,7 @@ Plug 'suan/vim-instant-markdown'                 " Instant markdown preview in b
 Plug 'majutsushi/tagbar'                         " Tagbar outliner.
 Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
-" Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
+Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
 Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
 Plug 'Carpetsmoker/auto_autoread.vim'
 Plug 'morhetz/gruvbox'                           " Gruvbox theme 
@@ -45,6 +45,8 @@ Plug 'pablocobelli/gist-vim'                     " Create and manage github gist
 Plug 'junegunn/goyo.vim'
 Plug 'unblevable/quick-scope'                    " Quick scope for easy f & F navigation
 Plug 'chriskempson/base16-vim'
+Plug '/usr/local/opt/fzf'                        " For using fzf with vim. Both lines needed. 
+Plug 'junegunn/fzf.vim'                          " For using fzf with vim. Both lines needed.
 " }}}
 call plug#end()
 
@@ -83,7 +85,7 @@ set timeoutlen=200 " Avoid waiting time when leaving insert mode.
 let g:ctrlp_map                 = '<c-p>'
 let g:ctrlp_cmd                 = 'CtrlPLastMode'
 let g:ctrlp_extensions          = ['buffertag', 'tag', 'line', 'dir']
-let g:ctrlp_cmd               = 'CtrlP'
+let g:ctrlp_cmd                 = 'CtrlP'
 let g:ctrlp_show_hidden         = 1
 let g:ctrlp_dotfiles            = 1
 let g:ctrlp_use_caching         = 1
@@ -369,7 +371,7 @@ endif
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 " }}}
-nmap <leader>z : !tmux resize-pane -Z<CR> 
+" nmap <leader>z : !tmux resize-pane -Z<CR> 
 
 " Added to easily replace unicode characters after
 " copy-pasting from pdfs or getting text from pdfs by using
@@ -424,13 +426,11 @@ augroup LookAtLastLineWhenMonitoringHistoryFile
 augroup END
 command! MonitorIPython3History view ~/.ipython/profile_default/ipython3_history.py 
 
-" Vertical split color
+" Vertical split color (leave as reference)
 " hi vertsplit ctermfg=green ctermbg=green
 
 " Space as fill char (next line has an extra space at end)
 set fillchars+=vert:\ 
-
-" Unhighlight current line number, so linenumber column blends with background
 
 " Hardcopy header customization
 set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N
@@ -463,13 +463,13 @@ command! -bar Autoreadcmd Autoread 0.5
 
 " TURBO FAST MODE
 " Ejecutar esto para cambiar el keyrepeat: defaults write NSGlobalDomain KeyRepeat -int 1
-" let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
+let loaded_matchparen=1   " Don't load matchit.vim (paren/bracket matching)
 " set noshowmatch         " Don't match parentheses/brackets
 " set nocursorline        " Don't paint cursor line
 " set nocursorcolumn      " Don't paint cursor column
-set lazyredraw          " Wait to redraw
+set lazyredraw            " Wait to redraw
 set ttyfast
-" set scrolljump=10        " Scroll 8 lines at a time at bottom/top
+" set scrolljump=10       " Scroll 8 lines at a time at bottom/top
 " let html_no_rendering=1 " Don't render italic, bold, links in HTML
 " set norelativenumber
 

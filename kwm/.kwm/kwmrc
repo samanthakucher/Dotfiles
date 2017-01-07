@@ -127,7 +127,7 @@ kwmc config add-role AXStandardWindow Yoda
 
 // Enable border for focused window
 kwmc config border focused on
-kwmc config border focused size 2
+kwmc config border focused size 4
 kwmc config border focused color 0xFFD3A45A
 kwmc config border focused radius 6
 
@@ -261,3 +261,6 @@ kwmc config mouse-drag on
 
 // Define a modifier for mouse-drag
 kwmc config mouse-drag mod shift+cmd
+
+// New?
+/* kwmc config dragndrop */

@@ -1,8 +1,10 @@
 # Example aliases
+alias cdh='cd ~'
 alias viz="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias vimrc="vim ~/.vimrc"
-alias vik="vim ~/.kwm/kwmrc"
+alias vikwm="vim ~/.kwm/kwmrc"
+alias vikhd="vim ~/.khdrc"
 alias vima="vim *.*"
 alias rkwm="kwmc config reload"
 
@@ -37,4 +39,4 @@ weather() {
 
 # Next one depends on installing 'brew install archey'
 alias arch='archey -o'
-alias cdh='cd ~'
+
