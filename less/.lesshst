@@ -40,4 +40,9 @@
 "services
 "list
 "list-sessions
+"Voice
+"voice
+"server
+"start
+"start-server
 .shell

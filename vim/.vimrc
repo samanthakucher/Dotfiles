@@ -504,3 +504,8 @@ let g:syntastic_python_flake8_args='--ignore=F999,E231,E226'
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 " }}}
+"
+
+" Sync system clipboard and vim's unnamed register 
+" to avoid pasting errors in vim inside tmux
+set clipboard=unnamed  
