@@ -75,7 +75,7 @@ The procedure is simple. I created the ${HOME}/Dotfiles directory and then insid
 For example, let's say you want to manage the configuration for Bash, VIM and Uzbl. Bash has a couple files in the top-level directory; VIM typically has your .vimrc file on the top-level and a .vim directory; and Uzbl has files in ${XDG_CONFIG_HOME}/uzbl and ${XDG_DATA_HOME}/uzbl. So, your home directory looks like this:
 
     home/
-    brandon/
+    pablo/
         .config/
             uzbl/
                 [...some files]
