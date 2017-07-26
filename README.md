@@ -93,7 +93,7 @@ For example, let's say you want to manage the configuration for Bash, VIM and Uz
 You would then create a dotfiles subdirectory and move all the files there:
 
     home/
-        /brandon/
+        /pablo/
             .config/
             .local/
                 .share/
