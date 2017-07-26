@@ -1,12 +1,20 @@
 {
   "load_extensions": {
-    "toggle_all_line_numbers/main": true,
-    "vim_binding/vim_binding": true,
-    "toc2/main": false,
+    "help_panel/help_panel": true,
     "latex_envs/latex_envs": true,
-    "equation-numbering/main": true,
-    "dragdrop/main": true,
+    "code_prettify/code_prettify": false,
+    "vim_binding/vim_binding": true,
+    "jupyter-js-widgets/extension": false,
+    "bqplot/extension": false,
     "hide_input/main": true,
-    "python-markdown/main": true
+    "highlighter/highlighter": true,
+    "equation-numbering/main": true,
+    "rise/main": true,
+    "python-markdown/main": true,
+    "toc2/main": false,
+    "toggle_all_line_numbers/main": true,
+    "init_cell/main": true,
+    "rubberband/main": false,
+    "dragdrop/main": true
   }
 }

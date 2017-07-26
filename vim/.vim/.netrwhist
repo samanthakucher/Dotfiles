@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/pablo/UnderDevelopment/Fisica_II_Q/Guias_de_Laboratorio/Guia_01_Electrostatica'
 let g:netrw_dirhist_2='/Users/pablo/Dropbox/Proyectos de investigacion/articleemdp/Second_paper/2D_rotating/Figures'
 let g:netrw_dirhist_3='/Users/pablo'
 let g:netrw_dirhist_4='/Users/pablo/Applications'
 let g:netrw_dirhist_5='/Users/pablo'
+let g:netrw_dirhist_6='/Users/pablo/.hammerspoon'

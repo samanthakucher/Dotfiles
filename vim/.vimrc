@@ -14,14 +14,11 @@ set splitbelow                                    " Horizontal split windows app
 " Vim-Plug plugin manager settings {{{
 call plug#begin('~/.vim/plugged')
 " Plugins {{{
-Plug 'scrooloose/nerdtree'                       " NERDTree.
-Plug 'jistr/vim-nerdtree-tabs'                   " NERDTree through all tabs.
-Plug 'scrooloose/NERDCommenter'                  " NERDCommenter for easy commenting.
 Plug 'pablocobelli/vim-tmux-runner'              " Send lines to another tmux pane.
 Plug 'osyo-manga/vim-over'                       " Substitute preview in real time.
+Plug 'tpope/vim-commentary'                      " Comment providing operator. 
 Plug 'Tpope/vim-surround'                        " Surround test easily.
 Plug 'tmhedberg/SimpylFold'                      " Fold code easily.
-Plug 'MattesGroeger/vim-bookmarks'               " Bookmark lines in files.
 Plug 'davidhalter/jedi-vim'                      " Python jedi.
 Plug 'godlygeek/tabular'                         " Align to symbols.
 Plug 'https://github.com/ctrlpvim/ctrlp.vim.git' " Fuzzy file search.
@@ -35,18 +32,18 @@ Plug 'christoomey/vim-tmux-navigator'            " Navigate tmux panes as vim's.
 Plug 'suan/vim-instant-markdown'                 " Instant markdown preview in browser.
 Plug 'majutsushi/tagbar'                         " Tagbar outliner.
 Plug 'Yggdroot/indentLine'                       " Show indenting lines.
-Plug 'rizzatti/dash.vim'                         " Dash (MacOS only) integration.
 Plug 'scrooloose/syntastic'                      " Syntax checking for vim.
-Plug 'kshenoy/vim-signature'                     " Toggle, display & navigate marks
 Plug 'Carpetsmoker/auto_autoread.vim'
-Plug 'morhetz/gruvbox'                           " Gruvbox theme 
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
-Plug 'pablocobelli/gist-vim'                     " Create and manage github gists
-Plug 'junegunn/goyo.vim'
+Plug 'pablocobelli/gist-vim'                     " Create and manage github gists.
+Plug 'junegunn/goyo.vim'                         " Write without distractions. 
 Plug 'unblevable/quick-scope'                    " Quick scope for easy f & F navigation
-Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'                   " Base16 themes.
 Plug '/usr/local/opt/fzf'                        " For using fzf with vim. Both lines needed. 
 Plug 'junegunn/fzf.vim'                          " For using fzf with vim. Both lines needed.
+Plug 'beloglazov/vim-online-thesaurus'           " Quick search on online thesaurus. 
+Plug 'kien/rainbow_parentheses.vim'              " Parenthesis marking. 
+Plug 'vim-scripts/MatlabFilesEdition'            " Matlab syntax hightlighting and +.
 " }}}
 call plug#end()
 
@@ -72,7 +69,9 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
 
-set timeoutlen=200 " Avoid waiting time when leaving insert mode.
+" set timeoutlen=100 " Avoid waiting time when leaving insert mode.
+set timeout timeoutlen=3000 ttimeoutlen=100
+
 " }}}
 " DelimitMate {{{
 "  Automagically inserts matching closing parenthesis, brackets, etc.
@@ -104,10 +103,6 @@ let g:ctrlp_regexp = 1
 " (plugin) configuration.
 let g:numbers_exclude = ['nerdtree', 'tagbar', 'startify']
 " }}}
-" NERDCommenter {{{ 
-"  Add extra space before and after comment symbols.
-let NERDSpaceDelims = 1  
-" }}}
 " Edit_VIMRC {{{ 
 augroup EditVimRC
     autocmd!
@@ -132,6 +127,7 @@ augroup LaTeX
     autocmd BufWinLeave *.tex set colorcolumn=0
 augroup END
 " Smart ctags on latex files.
+let g:tagbar_width=30
 let g:tagbar_iconchars = ['>', '<']
 let g:tagbar_foldlevel = 99
 let g:tagbar_type_tex = {
@@ -185,7 +181,7 @@ let g:NERDTreeWinSize=40
 " }}}
 " NERDTreeTabs configurations {{{
 " Map NERDTree across tabs toggle on/off.
-map <leader>k :NERDTreeTabsToggle<CR><C-w><C-w> 
+" map <leader>k :NERDTreeTabsToggle<CR><C-w><C-w> 
 " Open NERDTree on console vim startup.
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0
@@ -224,7 +220,8 @@ let g:vtr_highlight_runner = [ 'python3.5' ]
 "  <leader>l will send selected block to a tmux session
 " If no selected block, <leader>l will execute the whole file. 
 let g:vtr_filetype_runner_overrides = {
-    \ 'python': '%run {file}' }
+    \ 'python': '%run {file}',
+    \ 'matlab': '{filewoext}'}
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 0
@@ -238,7 +235,8 @@ augroup END
 augroup Matlabic
     autocmd!
     " For MATLAB integration.
-    autocmd FileType matlab nmap <leader>l :VtrSendFile<CR> 
+    autocmd FileType matlab nmap <leader>l :VtrSendFile<CR>h
+    autocmd FileType matlab nmap <leader>k ?%%<CR>v*:VtrSendLinesToRunner<CR>''<ESC>
     autocmd FileType matlab xmap <leader>l :VtrSendLinesToRunner<CR>
 augroup END
 let g:slime_target = "tmux"
@@ -339,7 +337,7 @@ set hlsearch
 set mouse=a    " Use mouse.
 
 set scrolloff=3                    " scroll before reaching bottom edge
-nnoremap <leader>vv :e $MYVIMRC<CR>  
+nnoremap <leader>vf :e $MYVIMRC<CR>  
 " Quickly [Tab]Edit ~/.vimrc
 nnoremap <leader>vg :e $MYGVIMRC<CR> 
 " Quickly [Tab]Edit ~/.gvimrc
@@ -508,4 +506,68 @@ let g:syntastic_python_flake8_args='--ignore=F999,E231,E226'
 
 " Sync system clipboard and vim's unnamed register 
 " to avoid pasting errors in vim inside tmux
-set clipboard=unnamed  
+" if $TMUX == ''
+    " set clipboard+=unnamed  
+" endif
+"
+
+" For LaTeX easy editing
+" INSPIRED BY:
+" map  <C-B>      YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<esc>kA<esc>o
+" map! <C-B> <ESC>YpkI\begin{<ESC>A}<ESC>jI\end{<ESC>A}<esc>kA<esc>o
+map  <C-B>      :call CompleteTexEnvironment(0) <CR>
+map! <C-B> <ESC>:call CompleteTexEnvironment(1) <CR>
+" My own auto-complete for environments
+function! CompleteTexEnvironment(curmode)
+    let envname = substitute(getline('.'), '^\s*\(.\{-}\)\s*$', '\1', '')
+    if empty(envname)
+        echom 'Empty line, cannot autocomplete environment.'
+    else
+        call setline(line('.'), "")
+        call append(line('.')-1, "\\begin{" . envname . "}")
+        normal A
+        call append(line('.'), "\\end{" . envname . "}")
+        if stridx(envname, 'equation') > -1 || 
+            \ stridx(envname, 'align') > -1 ||
+            \ stridx(envname, 'multline') > -1 ||
+            \ stridx(envname, 'gather') > -1 
+            call append(line('.'), "\\label{eq:}")
+        endif
+        if stridx(envname, 'figure') > -1
+            call append(line('.'), "\\caption{}")
+            call append(line('.'), "\\label{fig:}")
+        endif
+    endif 
+    if a:curmode == 1
+        startinsert
+    endif
+    echom ''
+endfunction
+
+" Disable original mapping of vim-online-thesaurus, and
+"  customize mapping
+let g:online_thesaurus_map_keys = 0
+nnoremap <leader>q :OnlineThesaurusCurrentWord<CR>
+
+" Remember last position on file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" Split line at current cursor position without leaving normal mode
+"  this is mapped to Ctrl-J, because Control-J generates the same character
+"  code as <NL>
+nnoremap <NL> i<CR><ESC>
+
+" Vim-online-thesaurus plugin
+" USAGE: :Thesaurus word
+let g:online_thesaurus_map_keys = 0
+" nnoremap <leader>th :OnlineThesaurusCurrentWord <CR>
+
+" For commentary & matlab files
+augroup AddCommentarySymbolForMATLAB
+    au! FileType matlab setlocal commentstring=%\ %s 
+augroup END
+
+" Highlight current line
+set cursorline

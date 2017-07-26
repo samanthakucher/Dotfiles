@@ -18,7 +18,7 @@ hs.alert.show("Hammerspoon config loaded.")
 
 -- This shows hints for windows of iTerm2 app.
 hs.hints.showTitleThresh = 0
-hs.hints.hintChars = {'F', 'J', 'D', 'S', 'T', 'U'}
+hs.hints.hintChars = {'F', 'J', 'D', 'S', 'T', 'U', 'R', 'E', 'L', 'Q'}
 -- The following works in general but fails on iTerm2 windows without title bar
 -- hs.hotkey.bind({"cmd"},"k", function() hints.windowHints(appfinder.appFromName("iTerm2"):allWindows()) end)
 function giveFocusToNonStandardWindow (selectedWindow)
@@ -60,6 +60,18 @@ hs.hotkey.bind({"cmd"}, "return", function()
   else
     -- application.launchOrFocus("iTerm2")
     itermapp:selectMenuItem({"Shell","New Window"})
+  end
+end)
+
+hs.hotkey.bind({"cmd"}, "r", function()
+  reminderapp = appfinder.appFromName("Reminders")
+  if reminderapp == nil then
+    -- it is not open; open it and focus (that opens a new window & focus it)
+    application.open("Reminders")
+    application.launchOrFocus("Reminders")
+  else
+    application.open("Reminders")
+    application.launchOrFocus("Reminders")
   end
 end)
 

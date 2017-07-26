@@ -138,8 +138,8 @@ tree + shift - j        :   kwmc window -c reduce 0.05 south
 tree + shift - k        :   kwmc window -c reduce 0.05 north
 tree + shift - l        :   kwmc window -c reduce 0.05 east
 
-# tree - p                :   kwmc tree -pseudo create
-# tree + shift - p        :   kwmc tree -pseudo destroy
+tree - p                :   kwmc tree -pseudo create
+tree + shift - p        :   kwmc tree -pseudo destroy
 
 # tree - o                :   kwmc window -s prev
 # tree + shift - o        :   kwmc window -s next

@@ -122,7 +122,7 @@
 
 # Text to display before the first prompt. Will be formatted with variables
 # {version} and {kernel_banner}.
-# c.ZMQTerminalInteractiveShell.banner = 'Jupyter console {version}\n\n{kernel_banner}'
+c.ZMQTerminalInteractiveShell.banner = 'Jupyter console {version}\n\n{kernel_banner}'
 
 # Callable object called via 'callable' image handler with one argument, `data`,
 # which is `msg["content"]["data"]` where `msg` is the message from iopub
@@ -132,7 +132,7 @@
 # c.ZMQTerminalInteractiveShell.callable_image_handler = None
 
 # Shortcut style to use at the prompt. 'vi' or 'emacs'.
-# c.ZMQTerminalInteractiveShell.editing_mode = 'emacs'
+c.ZMQTerminalInteractiveShell.editing_mode = 'vi'
 
 # The name of a Pygments style to use for syntax highlighting
 # c.ZMQTerminalInteractiveShell.highlighting_style = ''
@@ -331,3 +331,7 @@
 
 # Username for the Session. Default is your system username.
 # c.Session.username = 'pablo'
+
+c.InteractiveShell.separate_in = ''
+c.InteractiveShell.separate_out = ''
+c.InteractiveShell.separate_out2 = ''

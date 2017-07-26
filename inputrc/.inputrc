@@ -1,2 +1,6 @@
+# Blink when pairing parenthesis in command line
+set blink-matching-paren on
+
 set editing-mode vi
 set keymap vi
+# set show-mode-in-prompt on
