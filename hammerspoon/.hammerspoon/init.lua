@@ -168,8 +168,13 @@ hs.hotkey.bind({"cmd","alt","ctrl"},"space", function()
   local scr_w = curr_screen:currentMode()['w']
   local x_curr_screen, y_curr_screen = curr_screen:position()
   -- obtener id, posicion y tamaño de las ventanas involucradas
-  local winob1 = wins[1]
-  local winob2 = wins[2]
+  winob1 = wins[1]
+  winob2 = wins[2]
+  -- safari bug, I dont know why (maybe it gets the menu bar?)
+  if winob1:application():name() == 'Safari' then
+      winob1 = wins[2]
+      winob2 = wins[3]
+  end
   -- determinamos si iTerm2 es una de las ventanas
   if winob1:application():name() == 'iTerm2' then i=0 else i=1 end
   -- buscar si existe la primera en la lista
@@ -180,9 +185,10 @@ hs.hotkey.bind({"cmd","alt","ctrl"},"space", function()
     table.insert(already_tiled_windows, winob1:topLeft())
     table.insert(already_tiled_windows, winob1:size())
     -- tilearla
-    wins[1]:setTopLeft(x_curr_screen+(1-i)*scr_w/2, menu_bar_height)
-    wins[1]:setSize(scr_w/2,scr_h-menu_bar_height)
-  else 
+    curr_win = hs.window.get(winob1:id())
+    curr_win:setTopLeft(x_curr_screen+(1-i)*scr_w/2, menu_bar_height)
+    curr_win:setSize(scr_w/2,scr_h-menu_bar_height)
+  else   
     -- recuperar su estado original
     curr_win = hs.window.get(winob1:id())
     curr_win:setTopLeft(already_tiled_windows[idx1+1])
@@ -199,8 +205,9 @@ hs.hotkey.bind({"cmd","alt","ctrl"},"space", function()
     table.insert(already_tiled_windows, winob2:topLeft())
     table.insert(already_tiled_windows, winob2:size())
     -- tilearla
-    wins[2]:setTopLeft(x_curr_screen+i*scr_w/2, menu_bar_height)
-    wins[2]:setSize(scr_w/2,scr_h-menu_bar_height)
+    curr_win = hs.window.get(winob2:id())
+    curr_win:setTopLeft(x_curr_screen+i*scr_w/2, menu_bar_height)
+    curr_win:setSize(scr_w/2,scr_h-menu_bar_height)
   else 
     -- recuperar su estado original
     curr_win = hs.window.get(winob2:id())
@@ -211,7 +218,7 @@ hs.hotkey.bind({"cmd","alt","ctrl"},"space", function()
     table.remove(already_tiled_windows, idx2)
     table.remove(already_tiled_windows, idx2)
   end
-
+  print('----------------')
 end)
 
 
