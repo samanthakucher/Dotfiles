@@ -1,20 +1,72 @@
 {
+  "keys": {
+    "command": {
+      "bind": {
+        "i": "jupyter-notebook:enter-edit-mode"
+      },
+      "unbind": [
+        "enter",
+        "i,i",
+        "shift-m"
+      ]
+    }
+  },
+  "Notebook": {
+    "Header": true,
+    "Toolbar": true
+  },
+  "CodeCell": {
+    "cm_config": {
+      "theme": "neo",
+      "font_family": "Roboto Mono"
+    }
+  },
+  "help_panel_add_toolbar_button": true,
+  "zenmode_backgrounds": [
+    ""
+  ],
   "load_extensions": {
-    "help_panel/help_panel": true,
-    "latex_envs/latex_envs": true,
-    "code_prettify/code_prettify": false,
-    "vim_binding/vim_binding": true,
-    "jupyter-js-widgets/extension": false,
-    "bqplot/extension": false,
-    "hide_input/main": true,
-    "highlighter/highlighter": true,
-    "equation-numbering/main": true,
     "rise/main": true,
-    "python-markdown/main": true,
-    "toc2/main": false,
-    "toggle_all_line_numbers/main": true,
-    "init_cell/main": true,
+    "navigation-hotkeys/main": false,
+    "runtools/main": true,
+    "toggle_all_line_numbers/main": false,
+    "code_font_size/code_font_size": true,
+    "varInspector/main": true,
     "rubberband/main": false,
-    "dragdrop/main": true
+    "dragdrop/main": false,
+    "snippets/main": true,
+    "nbextensions_configurator/config_menu/main": true,
+    "latex_envs/latex_envs": true,
+    "codemirror_mode_extensions/main": false,
+    "jupyter_cms/notebook/main": true,
+    "datestamper/main": true,
+    "qtconsole/qtconsole": true,
+    "jupyter-js-widgets/extension": true,
+    "toc2/main": false,
+    "equation-numbering/main": true,
+    "bqplot/extension": false,
+    "codemirror_themes/theme_selector": true,
+    "jupyter_themes/theme_selector": true,
+    "help_panel/help_panel": true,
+    "jupyter_themes/theme_selector.js": true,
+    "code_prettify/code_prettify": false,
+    "python-markdown/main": false,
+    "highlighter/highlighter": false,
+    "vim_binding/vim_binding": false,
+    "nb_conda/main": true,
+    "init_cell/main": false,
+    "hide_input/main": false,
+    "contrib_nbextensions_help_item/main": false
+  },
+  "toc2": {
+    "toc_window_display": true,
+    "number_sections": false,
+    "sideBar": false,
+    "toc_cell": false
+  },
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": true
+    }
   }
 }

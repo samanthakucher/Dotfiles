@@ -1,4 +1,5 @@
 {
-  "theme": "solarized",
-  "transition": "none"
+  "start_slideshow_at": "selected",
+  "theme": "serif",
+  "transition": "zoom"
 }

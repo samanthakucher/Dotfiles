@@ -36223,7 +36223,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>894 504 771 314 0 0 1680 1027 </string>
+	<string>753 195 771 396 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>756 561 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
@@ -36233,15 +36233,15 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>544 467 796 473 0 0 1680 1027 </string>
+	<string>861 299 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>20 20 812 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4 25 792 1002 0 0 1680 1027 </string>
+	<string>43 124 841 829 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>837 414 720 537 0 0 1680 1027 </string>
+	<string>7 12 808 463 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>18 14 817 999 0 0 1680 1027 </string>
+	<string>18 476 720 537 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>20 20 1640 990 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -36263,6 +36263,8 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>ASCII Ligatures</key>
+			<false/>
 			<key>Allow Title Reporting</key>
 			<false/>
 			<key>Ambiguous Double Width</key>
@@ -36886,19 +36888,19 @@
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
-			<real>0.20905854430379747</real>
+			<real>0.22908425632911392</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
 			<string>Bashing </string>
 			<key>Non Ascii Font</key>
-			<string>MesloLGS-RegularForPowerline 14</string>
+			<string>Menlo-Regular 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Non-ASCII Ligatures</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>Monaco 14</string>
+			<string>Menlo-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
@@ -37064,13 +37066,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.1803921568627451</real>
+				<real>0.88942432403564453</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.11764705882352941</real>
+				<real>0.88943558931350708</real>
 				<key>Red Component</key>
-				<real>0.18431372549019609</real>
+				<real>0.88941472768783569</real>
 			</dict>
 			<key>Tags</key>
 			<array/>
@@ -37110,11 +37112,11 @@
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Tab Color</key>
-			<false/>
+			<true/>
 			<key>Use Underline Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>0.99305228727409633</real>
+			<real>0.98140295557228929</real>
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
@@ -37989,6 +37991,10 @@
 	<true/>
 	<key>NoSyncConfirmBeta</key>
 	<true/>
+	<key>NoSyncConfirmShellIntegrationCommand</key>
+	<true/>
+	<key>NoSyncConfirmShellIntegrationCommand_selection</key>
+	<integer>0</integer>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
@@ -37997,6 +38003,10 @@
 	<true/>
 	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
 	<true/>
+	<key>NoSyncInstallUtilitiesPackage</key>
+	<true/>
+	<key>NoSyncInstallUtilitiesPackage_selection</key>
+	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
 	<string>7FD47E00-19B0-4197-A775-B49282C86B4F</string>
 	<key>NoSyncLastTipTime</key>
@@ -38092,7 +38102,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-07-18T14:42:53Z</date>
+	<date>2018-01-26T23:00:47Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -38108,7 +38118,7 @@
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
-	<false/>
+	<true/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.45401642376031637</real>
 	<key>StretchTabsToFillBar</key>
@@ -38153,6 +38163,8 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>

@@ -1,0 +1,206 @@
+/* Loading Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Merriweather:300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:700);
+/* @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:300); */
+
+div#notebook {
+ /* font-family: Merriweather, serif; */ 
+ font-family: Roboto, serif; 
+ font-size: 10pt;
+ line-height: 170%;
+ color: #303030;
+ -webkit-font-smoothing: antialiased !important;
+}
+body,
+div.body {
+ /* font-family: Merriweather, serif; */ 
+ font-size: 10pt;
+ color: #303030;
+ background-color: #ffffff;
+ background: #ffffff;
+ -webkit-font-smoothing: antialiased !important;
+}
+body.notebook_app {
+ padding: 0;
+ /* estos son los fondos de la pantalla */
+ background-color: #ffffff;
+ background: #ffffff; 
+ padding-right: 0px !important;
+ overflow-y: hidden;
+}
+/* borde azul de la celda a la izquierda */
+div.cell.code_cell .input_prompt {
+ /* border-right: 1px solid #3669C9; */
+ border-right: 1px solid #4C5164;
+}
+div.cell.text_cell .CodeMirror,
+div.cell.text_cell .CodeMirror pre {
+ line-height: 170% !important;
+ background: "#ffffff";
+ background-color: "#ffffff";
+}
+div.CodeMirror,
+div.CodeMirror pre {
+ font-family: 'Inconsolata', monospace, monospace;
+ font-size: 12pt;
+ line-height: 140%;
+ color: #303030;
+ background-color: "#ffffff";
+ background: "#ffffff";
+}
+.cm-s-ipython.CodeMirror {
+ font-family: 'Inconsolata', monospace, monospace;
+ font-size: 12pt;
+ background: #ffffff;
+ /* color: #303030; */ 
+ border-radius: 5px;
+ border-color: #ffffff;
+ border-style: dashed;
+ font-style: normal;
+ font-weight: normal;
+}
+
+div.input_area {
+ background-color: #ffffff;
+ background: #ffffff;
+ padding-right: 1.2em;
+ padding-left: 0px; 
+ border: 0px;
+ border-radius: 2px;
+}
+div.cell {
+ padding: 0px;
+ padding-left: 100px;
+ background: #ffffff;
+ background-color: #ffffff;
+ border: medium solid #ffffff;
+ border-radius: 2px;
+ border: none;
+ top: 0;
+ border-top-left-radius: 4px;
+}
+div.cell.selected {
+ background: #ffffff;
+ background-color: #ffffff;
+ /* border: medium solid #ffffff; */
+ padding: 0px;
+ padding-left: 100px;
+}
+div.prompt,
+.prompt {
+ font-family: 'Inconsolata', monospace, monospace;
+ font-size: 9pt !important;
+ font-weight: normal;
+ color: #aaaaaa;
+ line-height: 170%;
+ padding: 0px;
+ /* padding-top: 4px; */
+ padding-top: 0px;
+ /* padding-left: 20px; */
+ padding-right: 1px;
+ text-align: left !important;
+ min-width: 12.5ex !important;
+ width: 12.5ex !important;
+}
+div.prompt.input_prompt {
+ font-size: 9pt !important;
+ /* background-color: #ededed; */
+ border-top: 0px;
+ border-top-right-radius: 0px;
+ border-bottom-left-radius: 0px;
+ border-bottom-right-radius: 0px;
+ padding-right: 3px;
+ min-width: 12.5ex;
+ width: 12.5ex !important;
+}
+/* Previo a la celda, a la izquierda, el color */
+div.cell.selected:before {
+ background: #444B5A;
+ border: 2px solid #444B5A;
+ border-top-left-radius: 2px;
+ border-bottom-left-radius: 2px;
+ position: absolute;
+ display: block;
+ top: 0px;
+ left: 0px;
+ width: 30px;
+ height: 100%;
+ /* content: '->'; */
+ color: #ffffff;
+}
+div.text_cell_render {
+font-family: 'Computer Modern', 'Helvetica Neue', 'Arial', 'Helvetica', 'Geneva', sans-serif;
+line-height: 145%; /* added for some line spacing of text. */
+width: inherit; /* instead of 'inherit' for shorter lines */
+font-size: 12pt;
+}
+/* Set the size of the headers */
+div.text_cell_render h1 {
+font-family: Merriweather, serif;
+font-size: 25pt;
+/* font-weight: bold; */
+line-height: 35pt;
+}
+
+div.text_cell {
+ font-family: Roboto, Merriweather, serif;
+ font-size: 14pt;
+ line-height: 170% !important;
+ background: #ffffff;
+ background-color: #ffffff;
+ border-radius: 0px;
+}
+.rendered_html code {
+  border: solid 1px;
+  border-color: #E3EDF3;
+  background-color: #F7FAFB;
+  color: #000000;
+  font-size: 100%;
+  border-radius: 10px;
+  /* padding: 5px; */
+  padding-left: 5px;
+  padding-right: 5px;
+  /* padding-top: 2px; */
+  /* padding-bottom: 2px; */
+}
+#texteditor-backdrop {
+ background: #ffffff;
+ background-color: #ffffff;
+}
+#texteditor-backdrop #texteditor-container .CodeMirror-gutter,
+#texteditor-backdrop #texteditor-container .CodeMirror-gutters {
+ background: #e0e1e3;
+ background-color: #e0e1e3;
+ color: #aaaaaa;
+}
+.cm-s-ipython .CodeMirror-gutters {
+ /* background: #e0e1e3; */
+ background: #ffffff;
+ border: none;
+ border-radius: 0px;
+ width: 10px;
+}
+div.output_subarea.output_text.output_stream.output_stdout,
+div.output_subarea.output_text {
+ font-family: 'Inconsolata', monospace, monospace;
+ font-size: 11pt !important;
+ line-height: 150% !important;
+ background-color: #ffffff;
+ color: #303030;
+ border-top-right-radius: 0px;
+ border-top-left-radius: 0px;
+}
+div.output_area pre {
+ font-family: 'Inconsolata', monospace, monospace;
+ font-size: 11pt !important;
+ line-height: 151% !important;
+ color: #303030;
+ border-top-right-radius: 0px;
+ border-top-left-radius: 0px;
+}
+div.output_area {
+ display: -webkit-box;
+}

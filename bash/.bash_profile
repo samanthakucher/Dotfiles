@@ -48,16 +48,24 @@ export KEYTIMEOUT=1
 # Junegunn fuzzy-finder (fzf)
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 # fzf config
+#  FZF in a TMUX split of 20 lines height
+export FZF_TMUX=1
+export FZF_TMUX_HEIGHT=20
+#  FZF default options
 export FZF_DEFAULT_OPTS='
     --bind alt-j:down,alt-k:up
     --color=16
+    --extended
     '
-
-# Redefine configuration variables for history-substring-search zsh plugin
-#  These definitions should go after sourcing oh-my-zsh.sh 
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=,fg=blue,bold'
-# HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=,fg=red,bold'
-# HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
+# Redefine fzf default command to ignore 'anaconda' and 'Library' folders
+#  so that files in those folders do not get indexed and listed 
+#  (those are massive folders where one is not going in through fuzzy finding!
+export FZF_DEFAULT_COMMAND='ag -g ""'
+# If preview is needed
+# export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_CTRL_T_OPTS="--preview 'cat {}'"
+# Change default CTRL-T command action
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # iTerm2 shell integration IS EVIL
 # test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
@@ -135,3 +143,28 @@ alias cd=reminder_cd
 # ctrl-s for cycling through reverse-i-search
 [[ $- == *i* ]] && stty -ixon
 
+export PYTHONPATH="/anaconda/lib/python3.5/site-packages":$PYTHONPATH
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/Users/pablo/anaconda/bin:$PATH"
+
+export PATH=$PATH:~/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
+
+# For using homebrew bash_completion, 
+# installed using "brew install bash-completion"
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
+# Disable autocompletion of *.pdf files when calling vim + TAB
+# and the same for *.log, *.aux *.ps, *.dvi
+#   First we turn on 'Extended Globs'
+shopt -s extglob
+#   Then we apply the rules
+complete -f -X '*.@(pdf|log|aux|ps|dvi)' vim
+
+cdf() {
+   local file
+   local dir
+   file=$(fzf-tmux +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}

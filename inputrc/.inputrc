@@ -4,3 +4,6 @@ set blink-matching-paren on
 set editing-mode vi
 set keymap vi
 # set show-mode-in-prompt on
+
+# Make <tab>-driven autocompletion case INsensitive! 
+set completion-ignore-case on
