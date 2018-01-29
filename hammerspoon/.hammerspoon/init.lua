@@ -68,7 +68,7 @@ hs.hotkey.bind({"cmd"}, "return", function()
   itermapp = appfinder.appFromName("iTerm2")
   if itermapp == nil then
     -- it is not open; open it and focus (that opens a new window & focus it)
-    application.open("iTerm2")
+    application.open("iTerm")
     application.launchOrFocus("iTerm2")
   else
     -- application.launchOrFocus("iTerm2")
