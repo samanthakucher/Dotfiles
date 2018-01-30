@@ -13,8 +13,6 @@ export PAGER="less"
 # Use colors for less, man, etc.
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
 
-# added by Anaconda3 2.3.0 installer
-export PATH="//anaconda/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -143,10 +141,10 @@ alias cd=reminder_cd
 # ctrl-s for cycling through reverse-i-search
 [[ $- == *i* ]] && stty -ixon
 
-export PYTHONPATH="/anaconda/lib/python3.5/site-packages":$PYTHONPATH
+# export PYTHONPATH="/anaconda/lib/python3.5/site-packages":$PYTHONPATH
 
 # added by Anaconda3 4.4.0 installer
-export PATH="/Users/pablo/anaconda/bin:$PATH"
+# export PATH="/Users/pablo/anaconda/bin:$PATH"
 
 export PATH=$PATH:~/bin
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -168,3 +166,9 @@ cdf() {
    local dir
    file=$(fzf-tmux +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
+
+# added by Anaconda3 5.0.1 installer
+export PATH="/Users/pablo/anaconda3/bin:$PATH"
+
+# to avoid silly error display when running spyder from command line
+export EVENT_NOKQUEUE=1

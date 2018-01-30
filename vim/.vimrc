@@ -1,11 +1,10 @@
-set splitright
-set splitbelow
 set rtp+=/usr/local/opt/fzf                       " fzf fuzzy finder.
 set t_Co=256                                      " Use 256-color terminal.
 set foldlevel=99                                  " Open files with all folds open
 set nocompatible                                  " Truly running VI iMproved.
 let mapleader = ","                               " Define ',' as leader.
 set splitbelow                                    " Horizontal split windows
+set splitright
 set showtabline=0                                 " No tabline at the fuck#@g top!
 
 " External configurations that affect the VIM experience {{{
@@ -254,11 +253,7 @@ nnoremap <S-Tab> :bprevious<CR>
 " when switching buffers!
 set hidden
 
-" Vertical split color (leave as reference)
-" hi vertsplit ctermfg=green ctermbg=green
 
-" Space as fill char (next line has an extra space at end)
-set fillchars+=vert:\ 
 
 " Hardcopy header customization
 set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N
@@ -347,7 +342,7 @@ nnoremap <leader>kk :LatexTOCToggle<CR><C-W>p
 let g:LatexBox_aux_dir="auxfiles"
 let g:LatexBox_build_dir="auxfiles"
 
-" For completion
+" For completion using (default) omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 autocmd CompleteDone * pclose
@@ -359,4 +354,31 @@ vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
+" More indenting (2 spaces) for wrapped lines
+if has('linebreak')
+    set breakindent
+    if exists('&breakindentopt')
+        set breakindentopt=shift:2
+    endif
+end
 
+" Vertical split color (leave as reference)
+hi vertsplit ctermfg=green ctermbg=black
+" Space as fill char (next line has an extra space at end)
+" set fillchars+=vert:\ 
+if has('windows')
+    set fillchars=vert:│
+endif
+" Special character indicating a wrapped line
+if has('linebreak')
+    let &showbreak='⤷ '                 " ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS (U+2937, UTF-8: E2 A4 B7)
+endif
+
+" move easily between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Italics in vim for comments
+highlight Comment cterm=italic
