@@ -484,8 +484,11 @@ endfunction
 
 augroup statuslinecustomization
     au!
+    autocmd VimEnter * :call SetActiveStatusLine()
     autocmd BufEnter * :call SetActiveStatusLine()
+    autocmd WinEnter * :call SetActiveStatusLine()
     autocmd BufLeave * :call SetInactiveStatusLine()
+    autocmd WinLeave * :call SetInactiveStatusLine()
 augroup END
 
 
