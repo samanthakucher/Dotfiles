@@ -1,8 +1,8 @@
+let mapleader = ","                               " Define ',' as leader.
 set rtp+=/usr/local/opt/fzf                       " fzf fuzzy finder.
 set t_Co=256                                      " Use 256-color terminal.
 set foldlevel=99                                  " Open files with all folds open
 set nocompatible                                  " Truly running VI iMproved.
-let mapleader = ","                               " Define ',' as leader.
 set splitbelow                                    " Horizontal split windows
 set splitright
 set showtabline=0                                 " No tabline at the fuck#@g top!
@@ -14,12 +14,14 @@ set showtabline=0                                 " No tabline at the fuck#@g to
 " Vim-Plug plugin manager settings {{{
 call plug#begin('~/.vim/plugged')
 " Plugins {{{
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'guns/xterm-color-table.vim'
+Plug 'mbbill/VimExplorer'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 Plug 'pablocobelli/vim-tmux-runner'              " Send lines to another tmux pane.
-Plug 'jeffkreeftmeijer/vim-numbertoggle'         " Clever number toggling.
-Plug 'itchyny/lightline.vim'
-Plug 'daviesjamie/vim-base16-lightline'
+" Plug 'itchyny/lightline.vim'
+" Plug 'daviesjamie/vim-base16-lightline'
 Plug 'suan/vim-instant-markdown', { 'on': 'InstantMarkdownPreview' }                  " Instant markdown preview in browser.
 Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
@@ -149,7 +151,6 @@ set number
 " }}}
 " View invisible characters such as 'tab' and 'end of line' with glyphs {{{
 "  Use :set nolist to turn off invisible chars
-" set listchars=tab:▸\ ,eol:¬
 set listchars=tab:▸\ ,eol:¬
 " List toggle (activation/deactivation).
 noremap <leader>sc :set list!<CR>
@@ -202,8 +203,6 @@ set backspace=indent,eol,start
 
 " Open file under cursor in new tab.
 nnoremap <leader>fr <C-w>gf
-" Insert empty line *below* without leaving normal mode.
-noremap <leader><Space> o<Esc>k 
 " }}}
 " {{{ Clear highlighting of found terms on escape in normal mode
 "   The first line does the trick, the second one prevents vim from
@@ -253,8 +252,6 @@ nnoremap <S-Tab> :bprevious<CR>
 " when switching buffers!
 set hidden
 
-
-
 " Hardcopy header customization
 set pheader=%<%f%h%m%40{strftime(\"%I:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}%=Page\ %N
 
@@ -284,8 +281,8 @@ let base16colorspace=256
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
-highlight LineNr ctermbg=0  ctermfg=0
-highlight CursorLineNr ctermbg=0 ctermfg=3
+highlight LineNr cterm=NONE ctermbg=0 ctermfg=0
+highlight CursorLineNr cterm=NONE ctermbg=0 ctermfg=3
 " }}}
 "
 " Remember last position on file when starting up
@@ -317,16 +314,13 @@ let g:fzf_prefer_tmux = 1
 "  Mappings on fzf
 nnoremap <C-T> :Files<CR>
 nnoremap <C-C> :Buffers<CR>
+nnoremap <silent> <leader>tv :call fzf#run({ 'source': 'ag -g ""', 'sink': 'vsplit' })<cr>
+nnoremap <silent> <leader>th :call fzf#run({ 'source': 'ag -g ""', 'sink': 'split' })<cr>
 
 " Mapping to change to current file directory
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
-" Remapping C-F to C-W for easy navigation between window splits
-nnoremap <C-F> <C-W>
-
-
 " Remember cursor position and file location in window when switching buffers
-" Excelente!!!
 if v:version >= 700
   au BufLeave * let b:winview = winsaveview()
   au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
@@ -371,7 +365,7 @@ if has('windows')
 endif
 " Special character indicating a wrapped line
 if has('linebreak')
-    let &showbreak='⤷ '                 " ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS (U+2937, UTF-8: E2 A4 B7)
+    let &showbreak='⤷ '                 
 endif
 
 " move easily between splits
@@ -379,6 +373,119 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+" easily resize splits
+" ???
+
 
 " Italics in vim for comments
 highlight Comment cterm=italic
+
+" Wipe buffer using '-' key
+nnoremap - :bw<CR>
+
+" netrw (ejecutar con :Sex)
+" do not use banner
+let g:netrw_banner = 0
+" open files in new tab
+let g:netrw_browse_split = 3
+" tree-style
+let g:netrw_liststyle = 3
+
+set cursorline
+
+" Abbreviations for command-line
+cnoreabbrev tmuxconf ~/.tmux.conf
+cnoreabbrev hsconf ~/.hammerspoon/init.lua
+cnoreabbrev baliases ~/.bash_aliases
+cnoreabbrev bprofile ~/.bash_profile
+
+augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au WinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorline
+    au BufEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+    au BufLeave * setlocal nocursorline
+augroup END
+
+" Help in another tab
+nnoremap <leader>h :tab h 
+
+" - Nueva funcionalidad que me gustaria tener
+"     - customizar la statusline
+"     - customizar como cambia la statusline cuando tengo foco y cuando abandono
+"        foco
+
+function! StatusLineGetPath  () 
+  let g:Statusline_Max_Path = 30 
+  let p = expand('%') "relative to current path, and head path only 
+  " let p = substitute(p,'','/','g') 
+  let p = substitute(p, '^\V' . $HOME, '~', '') 
+  if len(p) > g:Statusline_Max_Path 
+    let p = simplify(p) 
+    let p = pathshorten(p) 
+  endif 
+  return p 
+endfunction 
+
+" Resetting pre-defined styles
+hi StatusLine   ctermfg=19  ctermbg=19  cterm=NONE
+hi StatusLineNC ctermfg=19  ctermbg=19  cterm=NONE
+" Defining my own styles
+hi StatusLineItalicStyle    cterm=italic  ctermbg=19   ctermfg=19
+hi StatusLineLeftArrowBody  cterm=none    ctermbg=14   ctermfg=19
+hi StatusLineModeIndicator  cterm=bold    ctermbg=14   ctermfg=19
+hi StatusLineLeftArrowTip   cterm=none    ctermbg=19   ctermfg=14
+hi StatusLineRightArrowTip  cterm=none    ctermbg=19   ctermfg=20
+hi StatusLineRightArrowBody cterm=none    ctermbg=20   ctermfg=19
+
+function! SetActiveStatusLine ()
+  setlocal statusline=
+  setlocal statusline+=%#StatusLineLeftArrowBody#
+  setlocal statusline+=\ \ 
+  setlocal statusline+=%#StatusLineModeIndicator#
+  setlocal statusline+=%{mode()}
+  setlocal statusline+=\ \  
+  setlocal statusline+=%#StatusLineLeftArrowTip#
+  setlocal statusline+=
+  setlocal statusline+=\ 
+  setlocal statusline+=%m
+  setlocal statusline+=\ 
+  " setlocal statusline+=%f}
+  setlocal statusline+=%-0.30{StatusLineGetPath()}%0* 
+  setlocal statusline+=\ %y
+
+  setlocal statusline+=%=        " Switch to the right side
+  setlocal statusline+=%#StatusLineRightArrowTip#
+  setlocal statusline+=
+  setlocal statusline+=%#StatusLineRightArrowBody#
+  setlocal statusline+=\ 
+  setlocal statusline+=%l
+  setlocal statusline+=/ 
+  setlocal statusline+=%L
+  setlocal statusline+=\ 
+  setlocal statusline+=c
+  setlocal statusline+=\ 
+  setlocal statusline+=%c
+  setlocal statusline+=\ 
+  setlocal statusline+=%P
+  setlocal statusline+=\ 
+endfunction
+
+function! SetInactiveStatusLine ()
+  setlocal statusline=
+  setlocal statusline+=%#StatusLineItalicStyle#
+  setlocal statusline+=\ \ \ \ \ \ \ 
+  setlocal statusline+=\ 
+  setlocal statusline+=%-0.30{StatusLineGetPath()}%0* 
+  setlocal statusline+=%=        
+endfunction
+
+augroup statuslinecustomization
+    au!
+    autocmd BufEnter * :call SetActiveStatusLine()
+    autocmd BufLeave * :call SetInactiveStatusLine()
+augroup END
+
+
