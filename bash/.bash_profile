@@ -111,6 +111,7 @@ bind 'set vi-cmd-mode-string \001\e[1m\e[38;5;17m\002<<<\001\e[0m\002'
 
 # shopt -s checkwinsize
 
+
 # PROMPT
 PS1=' \[\e[38;5;12m\]$(short_pwd) \[\e[0m\e[0;30m\]$(count_files)f:\[\e[0m\e[0;30m\]$(count_dirs)d\[\e[0m\] \$ '
 # PS1=' $(short_pwd) $(count_files)f:$(count_dirs)d \$ '
@@ -141,10 +142,6 @@ alias cd=reminder_cd
 # ctrl-s for cycling through reverse-i-search
 [[ $- == *i* ]] && stty -ixon
 
-# export PYTHONPATH="/anaconda/lib/python3.5/site-packages":$PYTHONPATH
-
-# added by Anaconda3 4.4.0 installer
-# export PATH="/Users/pablo/anaconda/bin:$PATH"
 
 export PATH=$PATH:~/bin
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -172,3 +169,31 @@ export PATH="/Users/pablo/anaconda3/bin:$PATH"
 
 # to avoid silly error display when running spyder from command line
 export EVENT_NOKQUEUE=1
+export PATH="/usr/local/sbin:$PATH"
+
+# set iTerm2 window title to nothing (text between " ")
+echo -ne "\033]0;" "\007"
+
+# LEAVE THIS AT THE BOTTOM
+# Intelligent use of history through different tmux sessions
+# ONLY caveat: press enter (null command) to make it happen on destination
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+# After each command, append to the history file and reread it
+# export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export PROMPT_COMMAND=""
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# For displaying minimal git information on the prompt
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\$(parse_git_branch)$PS1"
+
+# Add extra empty line between commands so clutter is separated from commands
+PS1="\n$PS1"
+
+# added by Anaconda3 5.2.0 installer
+export PATH="/Users/pablo/anaconda3/bin:$PATH"

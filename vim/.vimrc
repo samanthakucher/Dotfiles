@@ -20,8 +20,6 @@ Plug 'mbbill/VimExplorer'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 Plug 'pablocobelli/vim-tmux-runner'              " Send lines to another tmux pane.
-" Plug 'itchyny/lightline.vim'
-" Plug 'daviesjamie/vim-base16-lightline'
 Plug 'suan/vim-instant-markdown', { 'on': 'InstantMarkdownPreview' }                  " Instant markdown preview in browser.
 Plug 'Yggdroot/indentLine'                       " Show indenting lines.
 Plug 'mattn/webapi-vim'                          " Needed for gist-vim
@@ -34,6 +32,13 @@ Plug 'tpope/vim-commentary'                      " Commenting
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}                      " FileTree
 Plug 'tpope/vim-dispatch'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'ervandew/supertab'                         " to make youcompleteme & ultisnips to play nice together
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'majutsushi/tagbar'
+Plug 'w0rp/ale'
+Plug 'rizzatti/dash.vim'
 " }}}
 call plug#end()
 
@@ -43,9 +48,8 @@ call plug#end()
 let g:plug_window = "tab new"
 " ----------------------------------------------------------------------------
 
-let g:lightline = {
-      \ 'colorscheme': 'base16',
-      \ }
+
+
 
 set timeout timeoutlen=3000 ttimeoutlen=100
 
@@ -62,12 +66,10 @@ let g:NERDTreeWinSize=40
 " }}}
 " NERDTreeTabs configurations {{{
 " Map NERDTree across tabs toggle on/off.
-" map <leader>k :NERDTreeTabsToggle<CR><C-w><C-w> 
 " Open NERDTree on console vim startup.
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0
 let NERDTreeShowBookmarks=1
-" nnoremap <leader>; <C-w><C-w>
 " }}}
 " Colorcolumn activation/deactivation {{{
 "  Slightly color 79th column as a ruler
@@ -290,8 +292,8 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Nerdtree
-map <leader>o :NERDTreeToggle<CR>
+" NERDTree (leader + f + e, as 'File Explorer')
+map <leader>fe :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
@@ -299,7 +301,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k" 
 
-" See all symbols in tex
+" See all symbols in tex (do not conceal anything)
 let g:tex_conceal = ""
 
 " The following line is to allow to see special markdown symbols in the
@@ -337,10 +339,7 @@ let g:LatexBox_aux_dir="auxfiles"
 let g:LatexBox_build_dir="auxfiles"
 
 " For completion using (default) omnicomplete
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-autocmd CompleteDone * pclose
-set completeopt+=longest,menuone
+" filetype plugin on
 
 " Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
@@ -368,14 +367,11 @@ if has('linebreak')
     let &showbreak='⤷ '                 
 endif
 
-" move easily between splits
+" move easily between vim splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" easily resize splits
-" ???
-
 
 " Italics in vim for comments
 highlight Comment cterm=italic
@@ -401,12 +397,12 @@ cnoreabbrev bprofile ~/.bash_profile
 
 augroup CursorLine
     au!
-    au VimEnter * setlocal cursorline
-    au WinEnter * setlocal cursorline
+    au VimEnter    * setlocal cursorline
+    au WinEnter    * setlocal cursorline
     au BufWinEnter * setlocal cursorline
-    au BufEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-    au BufLeave * setlocal nocursorline
+    au BufEnter    * setlocal cursorline
+    au WinLeave    * setlocal nocursorline
+    au BufLeave    * setlocal nocursorline
 augroup END
 
 " Help in another tab
@@ -451,7 +447,7 @@ function! SetActiveStatusLine ()
   setlocal statusline+=
   setlocal statusline+=\ 
   setlocal statusline+=%m
-  setlocal statusline+=\ 
+  " setlocal statusline+=\ 
   " setlocal statusline+=%f}
   setlocal statusline+=%-0.30{StatusLineGetPath()}%0* 
   setlocal statusline+=\ %y
@@ -476,8 +472,7 @@ endfunction
 function! SetInactiveStatusLine ()
   setlocal statusline=
   setlocal statusline+=%#StatusLineItalicStyle#
-  setlocal statusline+=\ \ \ \ \ \ \ 
-  setlocal statusline+=\ 
+  setlocal statusline+=\ \ \ \ \ \ \ \ 
   setlocal statusline+=%-0.30{StatusLineGetPath()}%0* 
   setlocal statusline+=%=        
 endfunction
@@ -491,4 +486,120 @@ augroup statuslinecustomization
     autocmd WinLeave * :call SetInactiveStatusLine()
 augroup END
 
+augroup disableAutoCommentOnNewLine
+    au!
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
 
+inoremap <C-T> <C-x><C-o>
+
+"" Esta config que sigue permite tener a YCM & UltiSnips y usar Tab y S-Tab
+""   en ambos inteligentemente! Esto lo logramos usando SuperTab.
+" YouCompleteMe
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
+let g:completor_min_chars = 2
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" UltiSnips
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:snips_author = "Pablo Cobelli"
+let g:snips_email = "cobelli@df.uba.ar"
+let g:snips_github = "https://github.com/pablocobelli"  
+" Para que grabe los snippets definidos por usuario en donde debe!
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+"" Fin de la config entrelazada de YCM + UltiSnips
+
+
+" Change cursor shape depending on mode it makes very clear where we are at
+" (this is for running vim inside iTerm inside tmux!)
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+" Tagbar
+nmap <leader>tb :TagbarToggle<CR>
+
+
+" NERDTree Preview
+let g:nerd_preview_enabled = 0
+let g:preview_last_buffer  = 0
+
+function! NerdTreePreview()
+  " Only on nerdtree window
+  if (&ft ==# 'nerdtree')
+    " Get filename
+    let l:filename = substitute(getline("."), "^\\s\\+\\|\\s\\+$","","g")
+
+    " Preview if it is not a folder
+    let l:lastchar = strpart(l:filename, strlen(l:filename) - 1, 1)
+    if (l:lastchar != "/" && strpart(l:filename, 0 ,2) != "..")
+
+      let l:store_buffer_to_close = 1
+      if (bufnr(l:filename) > 0)
+        " Don't close if the buffer is already open
+        let l:store_buffer_to_close = 0
+      endif
+
+      " Do preview
+      execute "normal go"
+
+      " Close previews buffer
+      if (g:preview_last_buffer > 0)
+        execute "bwipeout " . g:preview_last_buffer
+        let g:preview_last_buffer = 0
+      endif
+
+      " Set last buffer to close it later
+      if (l:store_buffer_to_close)
+        let g:preview_last_buffer = bufnr(l:filename)
+      endif
+    endif
+  elseif (g:preview_last_buffer > 0)
+    " Close last previewed buffer
+    let g:preview_last_buffer = 0
+  endif
+endfunction
+
+function! NerdPreviewToggle()
+  if (g:nerd_preview_enabled)
+    let g:nerd_preview_enabled = 0
+    augroup nerdpreview
+      autocmd!
+      augroup END
+  else
+    let g:nerd_preview_enabled = 1
+    augroup nerdpreview
+      autocmd!
+      autocmd CursorMoved * nested call NerdTreePreview()
+    augroup END
+  endif
+endfunction
+
+
+" ALE Linting & fixing config
+" let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 0
+let g:ale_completion_enabled = 0 
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_change = 'never'
+" ALE linting engine, disable highlighting
+let g:ale_set_highlights = 0
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+" highlight ALEWarning ctermbg=0
+" highlight ALEErrorSign ctermbg=0
+let g:ale_change_sign_column_color = 0
+let g:ale_sign_error = "●"
+let g:ale_sign_warning = "○"
+highlight ALEErrorSign ctermfg=red ctermbg=0 
+highlight ALEWarningSign ctermfg=yellow ctermbg=0 
+highlight clear SignColumn 

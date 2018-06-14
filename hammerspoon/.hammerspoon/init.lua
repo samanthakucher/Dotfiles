@@ -132,7 +132,7 @@ hs.hotkey.bind({"cmd"}, "e", function()
   local curr_app = hs.application.frontmostApplication()
   if curr_app:name() == 'iTerm2' then
     -- iTerm es la ventana activa, enviar el prefijo 
-    hs.eventtap.keyStroke({"ctrl"},"z")
+    hs.eventtap.keyStroke({"ctrl"},"q")
   else 
     -- No hagamos nada
   end
@@ -221,5 +221,23 @@ hs.hotkey.bind({"cmd","alt","ctrl"},"space", function()
   print('----------------')
 end)
 
+-- set up switcher for cmd+@ and cmd+shift-@
+-- which cmd+tabs only between python figure windows
+switcher = hs.window.switcher.new(hs.window.filter.new{'python'}) -- default windowfilter: only visible windows, all Spaces
+switcher.ui.highlightColor = {0.4,0.4,0.5,0.8}
+switcher.ui.thumbnailSize = 0 
+switcher.ui.selectedThumbnailSize = 200
+switcher.ui.backgroundColor = {0.3, 0.3, 0.3, 0.5}
+switcher.ui.fontName = 'System'
+switcher.ui.textSize = 14
+switcher.ui.showSelectedTitle = true 
+switcher.ui.onlyActiveApplication = True
 
+-- bind to hotkeys; WARNING: at least one modifier key is required!
+hs.hotkey.bind({"cmd"},"@",function()switcher:next()end)
+hs.hotkey.bind({"cmd", "shift"},"@",function()switcher:previous()end)
+
+
+-- show info on screen saying the config file has been sourced
 hs.alert.show("Hammerspoon config loaded.")
+
