@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/pablo/Under_Development/Espectros_FFT_PWelch'
-let g:netrw_dirhist_2='/Users/pablo/Under_Development/project_organization/project_01/references'
-let g:netrw_dirhist_3='/Users/pablo/Under_Development'
-let g:netrw_dirhist_4='/Users/pablo/.tmux'
-let g:netrw_dirhist_5='/Users/pablo/Dotfiles/tmux/.tmux'
-let g:netrw_dirhist_6='/Users/pablo/Dotfiles/tmux'
-let g:netrw_dirhist_7='/Users/pablo/Under_Development/FC_Python-prototipo-PJC'
-let g:netrw_dirhist_8='/Users/pablo/Under_Development'
+let g:netrw_dirhist_cnt =0

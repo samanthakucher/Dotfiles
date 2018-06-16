@@ -38,7 +38,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
-Plug 'rizzatti/dash.vim'
 " }}}
 call plug#end()
 
@@ -104,14 +103,17 @@ let g:vtr_filetype_runner_overrides = {
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 0
+" let g:VtrCellPatternIdentifier = '##'
+let g:VtrCellPatternIdentifier = '#%%'
 
 augroup Pythonic
     autocmd!
     " For IPython integration.
     autocmd FileType python nmap <leader>l :VtrSendFile<CR>
     autocmd FileType python xmap <leader>l :VtrSendLinesToRunner<CR> 
+    autocmd FileType python nmap <leader>k :VtrSendCellToRunner<CR>
     " Completion via (default) omni-completion using pyhthon3
-    autocmd FileType python set omnifunc=python3complete#Complete
+    " autocmd FileType python set omnifunc=python3complete#Complete
 augroup END
 augroup Matlabic
     autocmd!
@@ -332,7 +334,11 @@ endif
 "  Setting width
 let g:LatexBox_split_width=70
 "  <leader>+kk toggles the LatexTOC and changes back to originating window
-nnoremap <leader>kk :LatexTOCToggle<CR><C-W>p
+augroup LatexFiles
+    au!
+    autocmd FileType latex nmap <leader>kk :LatexTOCToggle<CR><C-W>p
+augroup END
+
 " These two are needed (both!) for the TOC to be built from the 'auxfiles/' directory
 " where all .aux files are! Otherwise TOC doesn't show and gives error
 let g:LatexBox_aux_dir="auxfiles"
@@ -451,8 +457,8 @@ function! SetActiveStatusLine ()
   " setlocal statusline+=%f}
   setlocal statusline+=%-0.30{StatusLineGetPath()}%0* 
   setlocal statusline+=\ %y
-
   setlocal statusline+=%=        " Switch to the right side
+
   setlocal statusline+=%#StatusLineRightArrowTip#
   setlocal statusline+=
   setlocal statusline+=%#StatusLineRightArrowBody#
